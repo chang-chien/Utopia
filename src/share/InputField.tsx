@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     borderRadius: 15, // 添加圆角
   },
 });
-// TODO: placeholder 的字型
+// CCTODO: placeholder 的字型
 
 
 const InputField: React.FC<Props> = ({ label }) => {
