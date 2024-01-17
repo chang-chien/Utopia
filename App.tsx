@@ -13,6 +13,9 @@ import {
 import PersonalInfo from './src/pages/PersonalInfo';
 import Poll from './src/pages/Poll';
 import Home from './src/pages/Home/Home';
+// import Message from './src/pages/Message/Message';
+import Match from './src/pages/Match/Match';
+// import Feed from './src/pages/Feed/Feed';
 import Profile from './src/pages/Profile/Profile';
 import SignUp from './src/pages/SignUp';
 
@@ -45,10 +48,15 @@ const styles = StyleSheet.create({
 
 // TODO: 頁面的 User Journey (1)第一次下載 (2)註冊過登出了 (3)登入中直接進 HOME
 // TODO: StatusBar 監控頁面 loading 狀況
+
+/**驗證下面 Stack.Navigator */
 export type RootStackParamList = {
   Poll: undefined;
   PersonalInfo: undefined;
   Home: undefined;
+  Message: undefined;
+  Match: undefined;
+  Feed: undefined;
   Profile: undefined;
 };
 
@@ -77,6 +85,15 @@ const App = () => {
         <Stack.Screen name="Home">
           {(props) => <Home {...props} />}
         </Stack.Screen>
+        {/* <Stack.Screen name="Message">
+          {(props) => <Message {...props} />}
+        </Stack.Screen> */}
+        <Stack.Screen name="Match">
+          {(props) => <Match {...props} />}
+        </Stack.Screen>
+        {/* <Stack.Screen name="Feed">
+          {(props) => <Feed {...props} />}
+        </Stack.Screen> */}
         <Stack.Screen name="Profile">
           {(props) => <Profile {...props} />}
         </Stack.Screen>
