@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TextInput, Image, StyleSheet, Text } from 'react-native';
 
+// CCTODO: image 改成多張
 export type Props = {
   image?: any;
   avatar?: any;
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     comment: {
         fontSize: 14,
         color: '#777777',
-        backgroundColor: '#E2DEDF', // TODO: 要不要改 EEEBEB 跟 personalInfo > inputField 一致
+        backgroundColor: '#E2DEDF', // CCQ: 要不要改 EEEBEB 跟 personalInfo > inputField 一致
         height: 20, 
         width: 140, 
         paddingTop: 3, // 上
@@ -49,8 +50,8 @@ const styles = StyleSheet.create({
     }
 });
 
-// TODO: 補 feedback icon
-// TODO: 補頭貼
+// CCTODO: 補 feedback icon
+// CCTODO: 補頭貼
 const PostField: React.FC<Props> = ({ username, content }) => {
   return (
     <View style={styles.container}>
