@@ -1,10 +1,8 @@
-import { TouchableOpacity, Text, Image, StyleSheet, View, ScrollView } from 'react-native';
+import { Text, Image, StyleSheet, View, ScrollView } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../App';
 
-import InputField from '../../share/InputField'; // 导入新组件
-import ButtonField from '../../share/ButtonField'; // 导入新组件
 import ButtonIconField from '../../share/ButtonIconField'; // 导入新组件
 import BlockQnaField from '../../share/BlockQnaField'; // 导入新组件
 import BlockField from '../../share/BlockField'; // 导入新组件
@@ -26,7 +24,7 @@ const styles = StyleSheet.create({
     borderRadius: 35, // 添加圆角
     marginBottom: 5, // 可以根据需要调整垂直间距
   },
-  back: {
+  backIcon: {
     width: '50%', 
     fontSize: 35,
     color: "#D9D9D9",
@@ -121,7 +119,6 @@ const Match = ({navigation}: TProps) => {
 
 // CCTODO: report onPress function 抄 Match
 // CCTODO: favorite onPress function 抄 Match
-// CCTODO: 補 back onPress function
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -129,10 +126,17 @@ const Match = ({navigation}: TProps) => {
           style={styles.image}
           source={{ uri: data.image}}
         />
-        {/* <TouchableOpacity onPress={handleBack}> */}
-          <ButtonIconField collection='Entypo' name='arrow-with-circle-left' style={styles.back} onPress={handleBack}></ButtonIconField>
-        {/* </TouchableOpacity> */}
-        <ButtonIconField collection='Feather' name='more-vertical' style={styles.report}></ButtonIconField>
+        <ButtonIconField 
+          collection='Entypo' 
+          name='arrow-with-circle-left' 
+          style={styles.backIcon} 
+          onPress={handleBack}
+        />
+        <ButtonIconField 
+          collection='Feather' 
+          name='more-vertical' 
+          style={styles.report}
+        />
         <Text style={styles.user}>{data.name}, {data.age}</Text>
         <Text style={styles.location}>{data.locate}</Text>
         <BlockField title={'About me'} content={data.intro}/>

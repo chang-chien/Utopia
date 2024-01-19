@@ -1,9 +1,7 @@
 import React from 'react';
-import { View, TextInput, Image, StyleSheet, Text } from 'react-native';
+import { View, TextInput, StyleSheet, Text } from 'react-native';
 
-import InputField from './InputField'; // 导入新组件
 import TagField from './TagField'; // 导入新组件
-import ButtonField from './ButtonField'; // 导入新组件
 
 export type Props = {
   question: string;

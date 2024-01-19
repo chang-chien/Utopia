@@ -3,8 +3,6 @@ import { TouchableOpacity, Text, Image, StyleSheet, View, ScrollView } from 'rea
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../App';
 
-import InputField from '../../share/InputField'; // 导入新组件
-import ButtonField from '../../share/ButtonField'; // 导入新组件
 import ButtonIconField from '../../share/ButtonIconField'; // 导入新组件
 import BlockQnaField from '../../share/BlockQnaField'; // 导入新组件
 
@@ -40,7 +38,7 @@ const styles = StyleSheet.create({
     marginBottom: 15, // 可以根据需要调整垂直间距
     paddingRight: 20,
     textAlign: 'right',
-    opacity: 0.85,
+    opacity: 0.85, // 透明度
   },
   user: {
     fontSize: 25,

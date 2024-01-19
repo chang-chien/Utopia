@@ -4,7 +4,7 @@ import { Text, StyleSheet, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 
-import ButtonField from '../share/ButtonField'; // 导入新组件
+import ButtonLargeField from '../share/ButtonLargeField'; // 导入新组件
 
 const styles = StyleSheet.create({
   container: {
@@ -48,7 +48,7 @@ const Poll = ({navigation}: TProps) => {
         <Text style={styles.textContainer}>yourself</Text>
       </View>
       <View style={styles.button}>
-        <ButtonField
+        <ButtonLargeField
           title='Lets get started'
           onPress={() => navigation.navigate('PersonalInfo')}
           buttonColor='#EEEBEB'/>
