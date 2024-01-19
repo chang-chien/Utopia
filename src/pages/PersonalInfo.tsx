@@ -1,6 +1,6 @@
 import { StyleSheet, View, ScrollView } from 'react-native';
 import InputField from '../share/InputField'; // 导入新组件
-import ButtonField from '../share/ButtonField'; // 导入新组件
+import ButtonLargeField from '../share/ButtonLargeField'; // 导入新组件
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
@@ -55,9 +55,9 @@ const PersonalInfo = ({navigation}: TProps) => {
         ))}
       </View>
     </ScrollView>
-    <ButtonField 
+    <ButtonLargeField 
       title='Submit'
-      onPress={() => navigation.navigate('Match')} 
+      onPress={() => navigation.navigate('Space')} 
       buttonColor='#444344'
       buttonTextColor='#EEEBEB'/>
   </View>

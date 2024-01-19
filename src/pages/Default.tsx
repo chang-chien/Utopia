@@ -1,66 +1,63 @@
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, ScrollView } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 
-import InputField from '../share/InputField'; // 导入新组件
+import BlockField from '../share/BlockField'; // 导入新组件
+import BlockQnaField from '../share/BlockQnaField'; // 导入新组件
 import ButtonField from '../share/ButtonField'; // 导入新组件
+import ButtonIconField from '../share/ButtonIconField'; // 导入新组件
+import IconVariant from '../share/IconComponent/IconVariant';
+import ButtonLargeField from '../share/ButtonLargeField'; // 导入新组件
+import ButtonLinkField from '../share/ButtonLinkField'; // 导入新组件
+import ButtonSmallField from '../share/ButtonSmallField'; // 导入新组件
+import InputField from '../share/InputField'; // 导入新组件
+import InputAreaField from '../share/InputAreaField'; // 导入新组件
+import TagField from '../share/TagField'; // 导入新组件
 
+// TODO: 整理 styleSheet
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, // 一定要加不然螢幕下半部會被吃掉
     backgroundColor: '#F9F8EF',
-    alignItems: 'flex-start', // 上下對齊
-    justifyContent: 'flex-start',
     height: '80%',
     padding: 5, // 添加了 padding 属性
-    paddingTop: 30,
+    paddingVertical: 30,
     paddingLeft: 30,
+    paddingRight: 30,
   },
-  username: {
-    fontSize: 26,
-    color: '#444344',
-
-  },
-  location: {
-    fontSize: 24,
-    color: '#777777',
-
+  block: {
+    flex: 1, // 一定要加不然滑不動
+    marginBottom: 40, // 可以根据需要调整垂直间距
+    width: '100%',
   },
   title: {
-    fontSize: 22,
-    color: '#777777',
-
-  },
-  content: {
-    fontSize: 18,
-    color: '#777777',
-
-  },
-  postscript: {
-    fontSize: 14,
-    color: '#777777',
-
-  },
-  tag: {
-    fontSize: 13,
+    fontSize: 26,
     color: '#444344',
-  }
+    fontFamily: 'RobotoSlab_700Bold',
+  },
 });
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type DefaultScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Default'>;
 
 type TProps = {
-  navigation: HomeScreenNavigationProp;
+  navigation: DefaultScreenNavigationProp;
 };
 
-const Home = ({navigation}: TProps) => {
+const data = {}
+
+const Default = ({navigation}: TProps) => {
   return (
     <View style={styles.container}>
-        <Text>Hello World</Text>
+      <ScrollView>
+        <View style={styles.block}>
+            <Text style={styles.title}>Hello World</Text>
+        </View>
+      </ScrollView>
     </View>
+
   );
 }
 
-export default Home;
+export default Default;
 

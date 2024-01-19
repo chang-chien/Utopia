@@ -3,8 +3,6 @@ import { Text, StyleSheet, View, ScrollView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../App';
 
-import InputField from '../../share/InputField'; // 导入新组件
-import ButtonField from '../../share/ButtonField'; // 导入新组件
 import PostField from './PostField'; // 导入新组件
 
 const styles = StyleSheet.create({

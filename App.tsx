@@ -26,12 +26,15 @@ import {
 } from '@expo-google-fonts/inria-serif';
 // CCTODO 加上自型 => 文字、顏色、自型用 ENUM 或 i18n
 
+import Default from './src/pages/Default';
 import PersonalInfo from './src/pages/PersonalInfo';
 import Poll from './src/pages/Poll';
 import Home from './src/pages/Home/Home';
 // import Message from './src/pages/Message/Message';
 import Match from './src/pages/Match/Match';
-// import Feed from './src/pages/Feed/Feed';
+import Space from './src/pages/Space/Space';
+import Journal from './src/pages/Space/Journal';
+import Mood from './src/pages/Space/Mood';
 import Profile from './src/pages/Profile/Profile';
 import SignUp from './src/pages/SignUp';
 
@@ -67,12 +70,15 @@ const styles = StyleSheet.create({
 
 /**驗證下面 Stack.Navigator */
 export type RootStackParamList = {
+  Default: undefined;
   Poll: undefined;
   PersonalInfo: undefined;
   Home: undefined;
   Message: undefined;
   Match: undefined;
-  Feed: undefined;
+  Space: undefined;
+  Journal: undefined;
+  Mood: undefined;
   Profile: undefined;
 };
 
@@ -108,11 +114,20 @@ const App = () => {
         <Stack.Screen name="Match">
           {(props) => <Match {...props} />}
         </Stack.Screen>
-        {/* <Stack.Screen name="Feed">
-          {(props) => <Feed {...props} />}
-        </Stack.Screen> */}
+        <Stack.Screen name="Space">
+          {(props) => <Space {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Journal">
+          {(props) => <Journal {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Mood">
+          {(props) => <Mood {...props} />}
+        </Stack.Screen>
         <Stack.Screen name="Profile">
           {(props) => <Profile {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Default">
+          {(props) => <Default {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
