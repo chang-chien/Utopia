@@ -14,6 +14,7 @@ import ButtonSmallField from '../share/ButtonSmallField'; // 导入新组件
 import InputField from '../share/InputField'; // 导入新组件
 import InputAreaField from '../share/InputAreaField'; // 导入新组件
 import TagField from '../share/TagField'; // 导入新组件
+import BlockAvartField from '../share/BlockAvartField'; // 导入新组件
 
 // TODO: 整理 styleSheet
 const styles = StyleSheet.create({
@@ -48,14 +49,11 @@ const data = {}
 
 const Default = ({navigation}: TProps) => {
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <View style={styles.block}>
-            <Text style={styles.title}>Hello World</Text>
-        </View>
-      </ScrollView>
-    </View>
-
+    <ScrollView style={styles.container}>
+      <View style={styles.block}>
+        <Text style={styles.title}>Hello World</Text>
+      </View>
+    </ScrollView>
   );
 }
 

@@ -75,7 +75,7 @@ const CustomDayComponent: React.FC<DayComponentProps> = ({ date, state, isMarked
       break;
   }
 
-  return <TouchableOpacity style={styles.textContainer}  onPress={() => handlePress()}>{textComponent}</TouchableOpacity>;
+  return <TouchableOpacity style={styles.textContainer} onPress={() => handlePress()}>{textComponent}</TouchableOpacity>;
 };
 
 export default CustomDayComponent;

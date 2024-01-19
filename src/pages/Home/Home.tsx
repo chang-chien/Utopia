@@ -33,13 +33,15 @@ type TProps = {
 // CCTODO: 假資料 等接資料庫
 const data = [{
     userId: 1,
+    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
+    username: "Cristina",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
-    name: "Cristina",
     conetent: "Perfect afternoon in the Paris with overpriced balloons. But it’s fine because... ",  
   }, {
     userId: 2,
+    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
+    username: "Jessie",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
-    name: "Jessie",
     conetent: "Perfect afternoon in the Paris with overpriced balloons. But it’s fine because... ",  
 }]
 const Home = ({navigation}: TProps) => {
@@ -48,7 +50,10 @@ const Home = ({navigation}: TProps) => {
       <View style={styles.container}>
           <Text style={styles.pageTitle}>Feed</Text>
           {data.map((data, index) => (
-            <PostField key={index} image={data.image} username={data.name} content={data.conetent}/>
+            <PostField 
+              avatar={data.avatar} 
+              username={data.username} 
+              content={data.conetent}/>
           ))}
       </View>
     </ScrollView>

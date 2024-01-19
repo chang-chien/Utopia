@@ -57,7 +57,7 @@ const PersonalInfo = ({navigation}: TProps) => {
     </ScrollView>
     <ButtonLargeField 
       title='Submit'
-      onPress={() => navigation.navigate('Space')} 
+      onPress={() => navigation.navigate('Message')} 
       buttonColor='#444344'
       buttonTextColor='#EEEBEB'/>
   </View>

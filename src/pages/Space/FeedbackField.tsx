@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-import ButtonIconField from '../../share/ButtonIconField'; // 导入新组件
-import IconVariant from '../../share/IconComponent/IconVariant';
 import ButtonLinkField from '../../share/ButtonLinkField'; // 导入新组件
+import BlockAvartField from '../../share/BlockAvartField'; // 导入新组件
 
 // CCTODO: image 改成多張
 export type Props = {
@@ -13,14 +12,8 @@ export type Props = {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 10, // 可以根据需要调整垂直间距
+    marginBottom: 20, // 可以根据需要调整垂直间距
     width: '100%',
-  },
-  lyingBlock: {
-    width: '100%',
-    height: 'auto',
-    flexDirection: 'row', // 橫向排列
-    alignItems: 'flex-start', // 上下置中
   },
   avatar: {
     width: 32, 
@@ -45,16 +38,7 @@ const styles = StyleSheet.create({
 const FeedbackField: React.FC<Props> = ({ avatar, content }) => {
   return (
     <View style={styles.container}>
-        <View style={styles.lyingBlock}>
-            {/* 補 avatar */}
-            <Image
-                style={styles.avatar}
-                source={{ uri: avatar}}
-            />
-            <Text style={styles.content}>
-                {content}
-            </Text>
-        </View>
+        <BlockAvartField avatar={avatar} content={content}/>
         <ButtonLinkField 
             title='report this feedback'
             onPress={() => console.log('report this feedback')} 

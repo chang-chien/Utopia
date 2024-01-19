@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Text, Image, StyleSheet, View, ScrollView } from 'react-native';
+import { Text, StyleSheet, View, ScrollView } from 'react-native';
 import Slider from '@react-native-community/slider';
 
 import { StackNavigationProp } from '@react-navigation/stack';

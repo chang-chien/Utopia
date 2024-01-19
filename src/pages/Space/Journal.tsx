@@ -1,19 +1,12 @@
 import React, {useState} from 'react';
-import { Text, TextInput, StyleSheet, View, ScrollView } from 'react-native';
-import  { Calendar, CalendarList, Agenda }  from  'react-native-calendars' ;
+import { Text, StyleSheet, View, ScrollView } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../App';
 
-import BlockField from '../../share/BlockField'; // 导入新组件
-import BlockQnaField from '../../share/BlockQnaField'; // 导入新组件
-import ButtonField from '../../share/ButtonField'; // 导入新组件
 import ButtonIconField from '../../share/ButtonIconField'; // 导入新组件
-import IconVariant from '../../share/IconComponent/IconVariant';
-import ButtonLargeField from '../../share/ButtonLargeField'; // 导入新组件
 import ButtonSmallField from '../../share/ButtonSmallField'; // 导入新组件
 import InputAreaField from '../../share/InputAreaField'; // 导入新组件
-import TagField from '../../share/TagField'; // 导入新组件
 import CustomCalendar from '../../share/CustomCalendar'; // 导入新组件
 import FeedbackField from './FeedbackField'; // 导入新组件
 
@@ -54,13 +47,14 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 30,
     flex: 1,
+    marginBottom: 5, // 可以根据需要调整垂直间距
     paddingBottom: '30%' // 沒加會吃掉瀏覽空間
   },
   feedbackBlock: {
     width: '100%',
     paddingHorizontal: 35,
     flex: 1,
-    paddingBottom: 30 // 沒加會吃掉瀏覽空間
+    paddingBottom: 30 
   },
   dateTitle: {
     fontSize: 22,
@@ -72,7 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#ECEBE0',
     fontFamily: 'RobotoSlab_700Bold',
-    marginBottom: 5, // 可以根据需要调整垂直间距
+    marginBottom: 10, // 可以根据需要调整垂直间距
   },
   content: {
     fontSize: 18,
@@ -173,7 +167,6 @@ const Journal = ({navigation}: TProps) => {
 
   const getLogByDate = (logs, targetDate) => {
     const log = logs.find((entry) => entry.date === targetDate);
-    console.log(log);
     return log ? log.logContent : 'No log found for the given date';
   };
 

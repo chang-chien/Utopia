@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text, Image, StyleSheet, View, ScrollView } from 'react-native';
+import { Text, Image, StyleSheet, View, ScrollView } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../App';

@@ -30,7 +30,7 @@ import Default from './src/pages/Default';
 import PersonalInfo from './src/pages/PersonalInfo';
 import Poll from './src/pages/Poll';
 import Home from './src/pages/Home/Home';
-// import Message from './src/pages/Message/Message';
+import Message from './src/pages/Message/Message';
 import Match from './src/pages/Match/Match';
 import Space from './src/pages/Space/Space';
 import Journal from './src/pages/Space/Journal';
@@ -108,9 +108,9 @@ const App = () => {
         <Stack.Screen name="Home">
           {(props) => <Home {...props} />}
         </Stack.Screen>
-        {/* <Stack.Screen name="Message">
+        <Stack.Screen name="Message">
           {(props) => <Message {...props} />}
-        </Stack.Screen> */}
+        </Stack.Screen>
         <Stack.Screen name="Match">
           {(props) => <Match {...props} />}
         </Stack.Screen>
