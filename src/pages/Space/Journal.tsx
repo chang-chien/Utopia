@@ -167,7 +167,7 @@ const Journal = ({navigation}: TProps) => {
 
   const getLogByDate = (logs, targetDate) => {
     const log = logs.find((entry) => entry.date === targetDate);
-    return log ? log.logContent : 'No log found for the given date';
+    return log ? log.logContent : "you didn't write down anything that day"; // log 沒有內容的時候顯示
   };
 
   const handleDatePress = (date: string) => {

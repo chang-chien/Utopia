@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
   },
 });
 
-// CCTODO: QNA的Q大小可以跟title一樣? 不管怎麼樣都要把QNA並進來 差別是要不要開question
-// CCTODO: placeholder 的字型
+// Q 04 CCTODO: QNA的Q大小可以跟title一樣? 不管怎麼樣都要把QNA並進來 差別是要不要開question
+// 09 CCTODO: placeholder 的字型
 const BlockField: React.FC<Props> = ({ title, content, tag, image, annotation, comment}) => {
   return (
     <View style={styles.container}>

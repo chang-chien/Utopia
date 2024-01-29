@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native';
 import ButtonLinkField from '../../share/ButtonLinkField'; // 导入新组件
 import BlockAvartField from '../../share/BlockAvartField'; // 导入新组件
 
-// CCTODO: image 改成多張
+// 09 CCTODO: image 改成多張
 export type Props = {
   avatar?: any;
   content: string;
@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// CCTODO: 補頭貼
-// CCTODO: 補 report onpress
+// 09 CCTODO: 補 report onpress
 const FeedbackField: React.FC<Props> = ({ avatar, content }) => {
   return (
     <View style={styles.container}>

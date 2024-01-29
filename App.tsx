@@ -24,7 +24,7 @@ import {
   InriaSerif_700Bold,
   InriaSerif_700Bold_Italic,
 } from '@expo-google-fonts/inria-serif';
-// CCTODO 加上自型 => 文字、顏色、自型用 ENUM 或 i18n
+// 07 CCTODO 加上自型 => 文字、顏色、自型用 ENUM 或 i18n
 
 import Default from './src/pages/Default';
 import PersonalInfo from './src/pages/PersonalInfo';
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 });
 
 // CCQ: 頁面的 User Journey (1)第一次下載 (2)註冊過登出了 (3)登入中直接進 HOME
-// CCTODO: StatusBar 監控頁面 loading 狀況
+// 09 CCTODO: StatusBar 監控頁面 loading 狀況
 
 /**驗證下面 Stack.Navigator */
 export type RootStackParamList = {

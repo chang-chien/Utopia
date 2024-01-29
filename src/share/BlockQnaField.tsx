@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// CCTODO: placeholder 的字型
+// 09 CCTODO: placeholder 的字型
 const QnaField: React.FC<Props> = ({ question, answer}) => {
   return (
     <View style={styles.container}>

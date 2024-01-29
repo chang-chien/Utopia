@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Text, StyleSheet, View, ScrollView } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
