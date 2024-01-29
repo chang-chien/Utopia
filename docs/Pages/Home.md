@@ -8,7 +8,17 @@ Previous Page: [PersonalInfo](./PersonalInfo.md)
 [PostField](./Home/PostField.md)
 
 ## Issue
-- 命名 & 間距確認
+- 命名確認
+- 整個頁面
+- 圖片比例
+- 建立貼文頁面
+- feedback Icon 定義
+  - 可以按多個嗎
+  - 按下去之後的長相
+  - 大小
+- comment 長相
+- 底下會有 bar 但上面要啥
+- 如果是子頁面 底下就不會有 bar 然後上面會有上一頁
 
 ## TODO List
 - TODO ID on Figma: 09

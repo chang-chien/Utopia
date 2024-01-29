@@ -7,5 +7,10 @@ Previous Page: [Poll](./Poll.md)
 ## Issue:
 - Submit 附近的空間
 - 整個畫面確認
+- 分頁 & submit
+
+## TODO List
+- TODO ID on Figma:
+- 下拉式選單
 
 Next Page: [Home](./Home.md)

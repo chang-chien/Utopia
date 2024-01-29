@@ -5,18 +5,24 @@ Previous Page: [Match](./Match.md)
 <img src="./Space/Space.jpg" alt="Space Demo" width="30%">
 
 ## Link in this Page
-[Journal](./Journal.md)
-[Mood](./Mood.md)
+- [Journal](./Space/Journal.md)
+- [Mood](./Space/Mood.md)
 
 ## Field in this Page
-[FeedBackField](./Space/FeedBackField.md)
+- [FeedBackField](./Space/FeedBackField.md)
 
 ## Issue
-- padding 距離
-- report 形式 & 介面
-- favorite 反饋
+- Journal 相關
+  - 註解放不下
+  - 開關定義
+  - 開關預設
+  - 樹的用途, 變化, 解決方式
+- slider 相關
+  - 預設位置
+  - 有沒有 send
+- 整個畫面
 
 ## TODO List
-- TODO ID on Figma:
+- TODO ID on Figma: 09
 
 Next Page: [Profile](./Profile.md)

@@ -85,7 +85,7 @@ const data = {
   IfPublic: false,
 }
 
-// TODO: slider onSlidingComplete 回傳數值
+// 09 CCTODO: slider onSlidingComplete 回傳數值
 const Space = ({navigation}: TProps) => {
 
   const [isPublic, setIsPublic] = useState(data.IfPublic);

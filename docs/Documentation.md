@@ -1,4 +1,4 @@
-# [Pages](./Pages/Poll.md)
+# Pages
 - SignUp (Coming...)
 - [Poll](./Pages/Poll.md)
 - [PersnalInfo](./Pages/PersonalInfo.md)
