@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// CCTODO: 有一些是下拉式選單
+// 09 CCTODO: 有一些是下拉式選單
 const inputItems = [
   'Name',
   'Location',
@@ -57,7 +57,7 @@ const PersonalInfo = ({navigation}: TProps) => {
     </ScrollView>
     <ButtonLargeField 
       title='Submit'
-      onPress={() => navigation.navigate('Message')} 
+      onPress={() => navigation.navigate('Match')} 
       buttonColor='#444344'
       buttonTextColor='#EEEBEB'/>
   </View>

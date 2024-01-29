@@ -39,7 +39,7 @@ type TProps = {
   navigation: PollScreenNavigationProp;
 };
 
-// CCTODO: 這邊去 PersonalInfo 應該要用 Push 因為接下來都沒有上面 只有底下 bar
+// 03 CCTODO: 這邊去 PersonalInfo 應該要用 Push 因為接下來都沒有上面 只有底下 bar
 const Poll = ({navigation}: TProps) => {
   return (
     <View style={styles.container}>

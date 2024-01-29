@@ -117,8 +117,8 @@ const Match = ({navigation}: TProps) => {
     navigation.navigate('Match')
   };
 
-// CCTODO: report onPress function 抄 Match
-// CCTODO: favorite onPress function 抄 Match
+// 09 CCTODO: report onPress function 抄 Match
+// 09 CCTODO: favorite onPress function 抄 Match
   return (
     <ScrollView>
       <View style={styles.container}>

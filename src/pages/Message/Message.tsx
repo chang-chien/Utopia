@@ -50,7 +50,7 @@ type TProps = {
   navigation: MessageScreenNavigationProp;
 };
 
-// 好像可以不用帶ID
+// 05 CCTODO 好像可以不用帶ID 整個規劃 DB 的時候 in & out
 const data = [{
   senderId: 2,
   senderAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
@@ -67,7 +67,7 @@ const data = [{
   readStatus: false
 }]
 
-// CCTODO: BlockAvartField 外面加一層 touchable
+// 09 CCTODO: BlockAvartField 外面加一層 touchable
 const Message = ({navigation}: TProps) => {
   return (
     <ScrollView style={styles.container}>
@@ -78,6 +78,7 @@ const Message = ({navigation}: TProps) => {
       {data.map((data, index) => (
         <View style={styles.block}>
         <BlockAvartField 
+          key={index}
           avatar={data.senderAvatar} 
           title={data.senderName} 
           content={data.lastMessage}

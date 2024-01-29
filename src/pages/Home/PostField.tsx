@@ -5,7 +5,7 @@ import ButtonIconField from '../../share/ButtonIconField'; // 导入新组件
 import IconVariant from '../../share/IconComponent/IconVariant';
 import BlockAvartField from '../../share/BlockAvartField'; // 导入新组件
 
-// CCTODO: image 改成多張
+// 09 CCTODO: image 改成多張
 export type Props = {
   image?: any;
   avatar?: any;
@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
   },
 });
 
-// CCTODO: 補 feedback icon pressable
+// 05 CCTODO：規劃 Post feedbeck DB 
+// 09 CCTODO: 補 feedback icon pressable
 const PostField: React.FC<Props> = ({ avatar, username, content }) => {
   return (
     <View style={styles.container}>

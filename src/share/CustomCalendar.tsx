@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     calendarBackground: '#777777', //日曆底色
     textSectionTitleColor: '#E2DEDF', // 星期幾的文字顏色
     arrowColor: '#AFAFAF', // 上面箭頭顏色
-    // CCTODO: 設定截止日期
+    // 09 CCTODO: 設定截止日期
     disabledArrowColor: '#444343',
     monthTextColor: '#E2DEDF', 
     textMonthFontSize: 14,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// CCTODO: 加today 按鈕？
+// Q 09 CCTODO: 加 today 按鈕？
 const CustomCalendar: React.FC<Props> = ({markedDate, onPress}) => {
 
   const [selectedDate, setSelectedDate] = useState<string>('');

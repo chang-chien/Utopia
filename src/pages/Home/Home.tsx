@@ -30,7 +30,7 @@ type TProps = {
   navigation: HomeScreenNavigationProp;
 };
 
-// CCTODO: 假資料 等接資料庫
+// 05 CCTODO: 假資料 等接資料庫
 const data = [{
     userId: 1,
     avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
