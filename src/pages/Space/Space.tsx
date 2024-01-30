@@ -168,7 +168,7 @@ const Space = ({navigation}: TProps) => {
         <Text style={styles.title}>The song that can describe your mood today</Text>
         <ButtonSmallField 
           title='+ Add a song'
-          onPress={() => navigation.navigate('Home')} 
+          // onPress={() => navigation.navigate('Home')} 
           buttonColor='#444344'
           buttonTextColor='#ECEBE0'/>
       </View>

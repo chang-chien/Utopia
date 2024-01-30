@@ -1,7 +1,7 @@
 import { Text, Image, StyleSheet, View, ScrollView } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../App';
+import { RootTabParamList } from '../../../App';
 
 import ButtonIconField from '../../share/ButtonIconField'; // 导入新组件
 import BlockQnaField from '../../share/BlockQnaField'; // 导入新组件
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type MatchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Match'>;
+type MatchScreenNavigationProp = StackNavigationProp<RootTabParamList, 'Match'>;
 
 type TProps = {
   navigation: MatchScreenNavigationProp;

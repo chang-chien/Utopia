@@ -5,7 +5,7 @@ import ButtonField from './ButtonField'; // 导入新组件
 
 export type Props = {
   title: string;
-  onPress: Function;
+  onPress?: Function;
   buttonColor?: string; // 預設 #EEEBEB
   buttonTextColor?: string; // 預設 #444344
 };
