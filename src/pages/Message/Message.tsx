@@ -1,7 +1,7 @@
 import { Text, StyleSheet, View, ScrollView } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../App';
+import { RootTabParamList } from '../../../App';
 
 import BlockAvartField from '../../share/BlockAvartField'; // 导入新组件
 
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type MessageScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Message'>;
+type MessageScreenNavigationProp = StackNavigationProp<RootTabParamList, 'Message'>;
 
 type TProps = {
   navigation: MessageScreenNavigationProp;

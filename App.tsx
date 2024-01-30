@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import 'react-native-gesture-handler';
 
 import {
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // 垂直置中
   },
   titleContainer: {
-    alignItems: 'center', 
+    alignItems: 'center',
     paddingBottom: 30,
   },
   textContainer: {
@@ -63,6 +65,10 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: 'row', // 设置水平排列
   },
+  icon: {
+    fontSize: 40,
+    color: '#444344',
+  },
 });
 
 // CCQ: 頁面的 User Journey (1)第一次下載 (2)註冊過登出了 (3)登入中直接進 HOME
@@ -73,16 +79,91 @@ export type RootStackParamList = {
   Default: undefined;
   Poll: undefined;
   PersonalInfo: undefined;
+  TabScreen: undefined;
+  Space: undefined;
+  Journal: undefined;
+  Mood: undefined;
+};
+
+export type RootTabParamList = {
   Home: undefined;
   Message: undefined;
   Match: undefined;
   Space: undefined;
-  Journal: undefined;
-  Mood: undefined;
   Profile: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
+const SpaceStack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootTabParamList>();
+
+const SpaceStackScreen = () => (
+  <SpaceStack.Navigator >
+    <SpaceStack.Screen name="Space"  options={{ headerShown: false }} >
+      {(props) => <Space {...props} />}
+    </SpaceStack.Screen>
+    <SpaceStack.Screen name="Journal"  options={{ headerShown: false }} >
+      {(props) => <Journal {...props} />}
+    </SpaceStack.Screen>
+    <SpaceStack.Screen name="Mood"  options={{ headerShown: false }} >
+      {(props) => <Mood {...props} />}
+    </SpaceStack.Screen>
+  </SpaceStack.Navigator>
+);
+
+const TabScreen = () => (
+  <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+
+        if (route.name === 'Home') {
+          iconName = 'home';
+        } else if (route.name === 'Message') {
+          iconName = 'comment';
+        } else if (route.name === 'Match') {
+          iconName = 'heart';
+        } else if (route.name === 'Space') {
+          iconName = 'seedling';
+        } else if (route.name === 'Profile') {
+          iconName = 'user';
+        } else if (route.name === 'Settings') {
+          iconName = focused ? 'ios-list' : 'ios-list-outline';
+        }
+
+        return <FontAwesome5 name={iconName} style={styles.icon} solid/>;
+      },
+      // CCTODO 但不要比較好嗎 按下去要有顏色吧
+      // tabBarStyle: { backgroundColor: "#F9F8EF" }, // 背景色 
+      tabBarShowLabel: false, // 不顯示 bar 的 label
+      tabBarActiveTintColor: 'tomato',
+      tabBarInactiveTintColor: '#444344',
+    })}
+  >
+    <Tab.Screen name="Home">
+    {/* <Tab.Screen
+      name="Home"
+      options={{
+        tabBarIcon: ({ color, size }) => (
+          <FontAwesome5 name={'home'} style={styles.icon}/>
+        ),
+      }}
+    > */}
+      {(props) => <Home {...props} />}
+    </Tab.Screen>
+    <Tab.Screen name="Message">
+      {(props) => <Message {...props} />}
+    </Tab.Screen>
+    <Tab.Screen name="Match">
+      {(props) => <Match {...props} />}
+    </Tab.Screen>
+    <Tab.Screen name="Space" component={SpaceStackScreen} >
+    </Tab.Screen>
+    <Tab.Screen name="Profile">
+      {(props) => <Profile {...props} />}
+    </Tab.Screen>
+  </Tab.Navigator>
+);
 
 /** 全部頁面 */
 const App = () => {
@@ -91,7 +172,7 @@ const App = () => {
     RobotoSlab_700Bold,
     InriaSerif_700Bold,
   });
-  
+
   if (!fontsLoaded && !fontError) {
     return null;
   }
@@ -105,29 +186,7 @@ const App = () => {
         <Stack.Screen name="PersonalInfo">
           {(props) => <PersonalInfo {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="Home">
-          {(props) => <Home {...props} />}
-        </Stack.Screen>
-        <Stack.Screen name="Message">
-          {(props) => <Message {...props} />}
-        </Stack.Screen>
-        <Stack.Screen name="Match">
-          {(props) => <Match {...props} />}
-        </Stack.Screen>
-        <Stack.Screen name="Space">
-          {(props) => <Space {...props} />}
-        </Stack.Screen>
-        <Stack.Screen name="Journal">
-          {(props) => <Journal {...props} />}
-        </Stack.Screen>
-        <Stack.Screen name="Mood">
-          {(props) => <Mood {...props} />}
-        </Stack.Screen>
-        <Stack.Screen name="Profile">
-          {(props) => <Profile {...props} />}
-        </Stack.Screen>
-        <Stack.Screen name="Default">
-          {(props) => <Default {...props} />}
+        <Stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }} >
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

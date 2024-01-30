@@ -3,6 +3,7 @@ import InputField from '../share/InputField'; // 导入新组件
 import ButtonLargeField from '../share/ButtonLargeField'; // 导入新组件
 
 import { StackNavigationProp } from '@react-navigation/stack';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { RootStackParamList } from '../../App';
 
 const styles = StyleSheet.create({
@@ -57,7 +58,7 @@ const PersonalInfo = ({navigation}: TProps) => {
     </ScrollView>
     <ButtonLargeField 
       title='Submit'
-      onPress={() => navigation.navigate('Match')} 
+      onPress={() => navigation.navigate('TabScreen')} 
       buttonColor='#444344'
       buttonTextColor='#EEEBEB'/>
   </View>
