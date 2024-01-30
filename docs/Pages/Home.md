@@ -2,7 +2,8 @@
 
 Previous Page: [PersonalInfo](./PersonalInfo.md)
 
-<img src="./Home/Home.jpg" alt="Home Demo" width="30%">
+<img src="./Home/Home1.jpg" alt="Home Demo" width="30%">
+<img src="./Home/Home2.jpg" alt="Home Demo" width="30%">
 
 ## Field in this Page
 [PostField](./Home/PostField.md)

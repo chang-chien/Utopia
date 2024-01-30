@@ -2,7 +2,8 @@
 
 Previous Page: [Message](./Message.md)
 
-<img src="./Match/Match.jpg" alt="Match Demo" width="30%">
+<img src="./Match/Match1.jpg" alt="Match Demo" width="30%">
+<img src="./Match/Match2.jpg" alt="Match Demo" width="30%">
 
 ## Link in this Pages
 [Profile](./Profile.md)
