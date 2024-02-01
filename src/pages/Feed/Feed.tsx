@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start', // 上下對齊
     justifyContent: 'flex-start',
     height: '80%',
-    padding: 30, // 添加了 padding 属性
+    paddingHorizontal: 30, // 添加了 padding 属性
   },
   pageTitle: {
     fontSize: 32,
@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
 
 });
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type FeedScreenNavigationProp = StackNavigationProp<RootStackParamList, 'TabScreen'>;
 
 type TProps = {
-  navigation: HomeScreenNavigationProp;
+  navigation: FeedScreenNavigationProp;
 };
 
 // 05 CCTODO: 假資料 等接資料庫
@@ -44,11 +44,11 @@ const data = [{
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
     conetent: "Perfect afternoon in the Paris with overpriced balloons. But it’s fine because... ",  
 }]
-const Home = ({navigation}: TProps) => {
+const Feed = ({navigation}: TProps) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-          <Text style={styles.pageTitle}>Feed</Text>
+          {/* <Text style={styles.pageTitle}>Feed</Text> */}
           {data.map((data, index) => (
             <PostField 
               avatar={data.avatar} 
@@ -60,5 +60,5 @@ const Home = ({navigation}: TProps) => {
   );
 }
 
-export default Home;
+export default Feed;
 

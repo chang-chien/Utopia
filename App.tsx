@@ -31,7 +31,7 @@ import {
 import Default from './src/pages/Default';
 import PersonalInfo from './src/pages/PersonalInfo';
 import Poll from './src/pages/Poll';
-import Home from './src/pages/Home/Home';
+import Feed from './src/pages/Feed/Feed';
 import Message from './src/pages/Message/Message';
 import Match from './src/pages/Match/Match';
 import Space from './src/pages/Space/Space';
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// CCQ: 頁面的 User Journey (1)第一次下載 (2)註冊過登出了 (3)登入中直接進 HOME
+// CCQ: 頁面的 User Journey (1)第一次下載 (2)註冊過登出了 (3)登入中直接進 Feed
 // 09 CCTODO: StatusBar 監控頁面 loading 狀況
 
 /**驗證下面 Stack.Navigator */
@@ -86,7 +86,7 @@ export type RootStackParamList = {
 };
 
 export type RootTabParamList = {
-  Home: undefined;
+  Feed: undefined;
   Message: undefined;
   Match: undefined;
   Space: undefined;
@@ -117,8 +117,8 @@ const TabScreen = () => (
       tabBarIcon: ({ focused, color, size }) => {
         let iconName;
 
-        if (route.name === 'Home') {
-          iconName = 'home';
+        if (route.name === 'Feed') {
+          iconName = 'feed';
         } else if (route.name === 'Message') {
           iconName = 'comment';
         } else if (route.name === 'Match') {
@@ -140,16 +140,16 @@ const TabScreen = () => (
       tabBarInactiveTintColor: '#444344',
     })}
   >
-    <Tab.Screen name="Home">
+    <Tab.Screen name="Feed">
     {/* <Tab.Screen
-      name="Home"
+      name="Feed"
       options={{
         tabBarIcon: ({ color, size }) => (
           <FontAwesome5 name={'home'} style={styles.icon}/>
         ),
       }}
     > */}
-      {(props) => <Home {...props} />}
+      {(props) => <Feed {...props} />}
     </Tab.Screen>
     <Tab.Screen name="Message">
       {(props) => <Message {...props} />}

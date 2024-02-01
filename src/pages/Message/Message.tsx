@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9F8EF',
     height: '80%',
     padding: 5, // 添加了 padding 属性
-    paddingVertical: 30,
+    paddingVertical: 15,
     paddingLeft: 30,
     paddingRight: 30,
   },
@@ -71,9 +71,9 @@ const data = [{
 const Message = ({navigation}: TProps) => {
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.block}>
+      {/* <View style={styles.block}>
         <Text style={styles.title}>Message</Text>
-      </View>
+      </View> */}
 
       {data.map((data, index) => (
         <View style={styles.block}>

@@ -50,14 +50,14 @@ const styles = StyleSheet.create({
   },
   switchOn: {
     fontSize: 35,
-    color: '#444343',
+    color: '#D9D9D9',
     paddingLeft: 10,
     paddingRight: 100,
     marginBottom: 5, // 可以根据需要调整垂直间距
   },
   switchOff: {
     fontSize: 35,
-    color: '#D9D9D9',
+    color: '#444343',
     paddingLeft: 10,
     paddingRight: 100,
     marginBottom: 5, // 可以根据需要调整垂直间距
@@ -145,7 +145,7 @@ const Space = ({navigation}: TProps) => {
             style={styles.slider}
             minimumValue={0} //最小值
             maximumValue={10} //最大值
-            value={5} //預設值
+            value={10} //預設值
             minimumTrackTintColor="#ECEBE0" // 滑桿左邊顏色
             maximumTrackTintColor="#ECEBE0" // 滑桿右邊顏色
             thumbTintColor = "#E2DEDF" // 原點顏色 
@@ -157,10 +157,18 @@ const Space = ({navigation}: TProps) => {
             pressable={false} 
           />
         </View>
-        <ButtonLinkField 
-          title='View my mood genie'
-          onPress={() => navigation.navigate('Mood')} 
-          buttonTextColor='#ECEBE0'/>
+        {/* CCTODO 依樣高 */}
+        <View style={styles.lyingBlock}>
+          <ButtonSmallField 
+            title='Submit'
+            // onPress={() => navigation.navigate('Feed')} 
+            buttonColor='#444344'
+            buttonTextColor='#ECEBE0'/>
+          <ButtonLinkField 
+            title='View my mood genie'
+            onPress={() => navigation.navigate('Mood')} 
+            buttonTextColor='#ECEBE0'/>
+        </View>
       </View>
 
       {/* Song */}
@@ -168,7 +176,7 @@ const Space = ({navigation}: TProps) => {
         <Text style={styles.title}>The song that can describe your mood today</Text>
         <ButtonSmallField 
           title='+ Add a song'
-          // onPress={() => navigation.navigate('Home')} 
+          // onPress={() => navigation.navigate('Feed')} 
           buttonColor='#444344'
           buttonTextColor='#ECEBE0'/>
       </View>

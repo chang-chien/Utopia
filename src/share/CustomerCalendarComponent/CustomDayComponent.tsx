@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
       // backgroundColor: '#E2DEDF',
     },
     textSelected: {
-      color: '#FFFFFF',
+      color: '#777777',
       backgroundColor: '#E2DEDF',
     },
     textMarked: {
