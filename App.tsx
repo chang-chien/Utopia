@@ -29,8 +29,9 @@ import {
 // 07 CCTODO 加上自型 => 文字、顏色、自型用 ENUM 或 i18n
 
 import Default from './src/pages/Default';
-import PersonalInfo from './src/pages/PersonalInfo';
-import Poll from './src/pages/Poll';
+import PersonalInfo from './src/pages/Poll/PersonalInfo';
+import MoreInfo from './src/pages/Poll/MoreInfo';
+import Poll from './src/pages/Poll/Poll';
 import Home from './src/pages/Home/Home';
 import Message from './src/pages/Message/Message';
 import Match from './src/pages/Match/Match';
@@ -79,6 +80,7 @@ export type RootStackParamList = {
   Default: undefined;
   Poll: undefined;
   PersonalInfo: undefined;
+  MoreInfo: undefined;
   TabScreen: undefined;
   Space: undefined;
   Journal: undefined;
@@ -179,12 +181,17 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Poll">
+      <Stack.Navigator
+        // screenOptions={{ gestureEnabled: false }} // 鎖住手勢返回
+        >
+        <Stack.Screen name="Poll" options={{ headerShown: false }} >
           {(props) => <Poll {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="PersonalInfo">
+        <Stack.Screen name="PersonalInfo" options={{ headerShown: false }} >
           {(props) => <PersonalInfo {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="MoreInfo" options={{ headerShown: false }} >
+          {(props) => <MoreInfo {...props} />}
         </Stack.Screen>
         <Stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }} >
         </Stack.Screen>
