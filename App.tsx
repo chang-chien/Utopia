@@ -33,7 +33,6 @@ import Poll from './src/pages/Poll/Poll';
 import PersonalInfo from './src/pages/Poll/PersonalInfo';
 import MoreInfo from './src/pages/Poll/MoreInfo';
 import Feed from './src/pages/Feed/Feed';
-import Home from './src/pages/Home/Home';
 import Message from './src/pages/Message/Message';
 import Match from './src/pages/Match/Match';
 import Space from './src/pages/Space/Space';
