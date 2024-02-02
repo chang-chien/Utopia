@@ -31,8 +31,9 @@ const styles = StyleSheet.create({
   image: {
     width: '100%', 
     height: 0,
-    paddingBottom: '133.33%',
+    paddingBottom: '133.33%', // 3:4
     marginBottom: 2, // 如果只有一行文字 report會太遠
+    borderRadius: 20, // HTODO: 圖片邊跟avatar的比例
   },
   username: {
     fontSize: 16,

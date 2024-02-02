@@ -15,21 +15,32 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#777777',
   },
+  lyingBlock: {
+    width: '100%',
+    height: 'auto',
+    flexDirection: 'row', // 橫向排列
+    alignItems: 'center', // 上下置中
+    // justifyContent: 'space-between',
+    // backgroundColor: 'red',
+  },
   backIcon: {
-    width: '50%', 
     fontSize: 50,
     color: "#D9D9D9",
     textAlign: 'left',
-    marginBottom: 10, // 可以根据需要调整垂直间距
-    paddingHorizontal: 30,
+    // marginBottom: 10, // 可以根据需要调整垂直间距
+    paddingLeft: 30,
+    paddingRight: 10,
     marginTop: 30,
+    // backgroundColor: 'orange',
   },
   pageTitle: {
     fontSize: 32,
     color: '#E2DEDF',
     fontFamily: 'RobotoSlab_700Bold',
-    marginBottom: 5, // 可以根据需要调整垂直间距
-    paddingHorizontal: 30,
+    // marginBottom: 5, // 可以根据需要调整垂直间距
+    // paddingHorizontal: 30,
+    marginTop: 30,
+    // backgroundColor: 'yellow',
   },
   block: {
     width: '100%',
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 35,
     flex: 1,
-    paddingBottom: 30 
+    paddingBottom: 30
   },
   dateTitle: {
     fontSize: 22,
@@ -152,15 +163,15 @@ const Journal = ({navigation}: TProps) => {
   const getFormattedDate = (date: string) => {
     // Convert the date string to a JavaScript Date object
     const originalDate = new Date(date);
-      
+
     // Extract day, month, and year components
     const day = originalDate.getDate();
     const month = originalDate.toLocaleString('en-US', { month: 'short' }); // 月份用英文簡寫
     // const month = originalDate.getMonth() + 1; // 月份用數字
     const year = originalDate.getFullYear();
-  
+
     // Format the date as 'MM/DD/YYYY'
-    const formattedDate = `${month}/${day}/${year}`;
+    const formattedDate = `${month} ${day}, ${year}`;
 
     return formattedDate;
   }
@@ -173,20 +184,21 @@ const Journal = ({navigation}: TProps) => {
   const handleDatePress = (date: string) => {
     setSelectedDate(date);
   };
-  
+
   const logForDate = getLogByDate(logData, selectedDate);
-  
+
   return (
     <View style={styles.container}>
       <ScrollView>
-        <ButtonIconField 
-          collection='Entypo' 
-          name='arrow-with-circle-left' 
-          style={styles.backIcon} 
-          onPress={handleBack}
-        />  
-
-        <Text style={styles.pageTitle}>Journal log</Text>
+        <View style={styles.lyingBlock}>
+          <ButtonIconField
+            collection='Entypo'
+            name='arrow-with-circle-left'
+            style={styles.backIcon}
+            onPress={handleBack}
+          />
+          <Text style={styles.pageTitle}>Journal log</Text>
+        </View>
 
         <View style={styles.claenderBlock}>
           <CustomCalendar markedDate={data.date} onPress={handleDatePress}/>
@@ -214,20 +226,19 @@ const Journal = ({navigation}: TProps) => {
 
         <View style={styles.block}>
           <Text style={styles.comment}>Anything you can’t face by your own, or anything you can’t wait to share, we are all ears!</Text>
-          <ButtonSmallField 
+          <ButtonSmallField
             title='Talk to someone'
-            onPress={() => navigation.navigate('Home')} 
+            // onPress={() => navigation.navigate('Feed')}
             buttonColor='#444344'
             buttonTextColor='#ECEBE0'/>
-          <ButtonSmallField 
+          <ButtonSmallField
             title='Talk to Ubot'
-            onPress={() => navigation.navigate('Home')} 
+            // onPress={() => navigation.navigate('Feed')}
             buttonColor='#444344'
             buttonTextColor='#ECEBE0'/>
         </View>
-        <Text style={styles.block}></Text>
 
-        
+
       </ScrollView>
     </View>
 
