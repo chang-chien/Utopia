@@ -1,7 +1,8 @@
 # Pages
 - SignUp (Coming...)
 - [Poll](./Pages/Poll.md)
-- [PersnalInfo](./Pages/PersonalInfo.md)
+- [PersonalInfo](./Pages/PersonalInfo.md)
+- [MoreInfo](./Pages/MoreInfo.md)
 - [Feed](./Pages/Feed.md)
   - [Feed](./Pages/Feed.md)
   - [PostField](./Pages/Feed/PostField.md)

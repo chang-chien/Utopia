@@ -15,7 +15,7 @@ export type Props = {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 35, // 可以根据需要调整垂直间距
+    marginBottom: 30, // 可以根据需要调整垂直间距
     width: '100%'
   },
   textContainer: {
@@ -51,13 +51,11 @@ const styles = StyleSheet.create({
   comment: {
     fontSize: 14,
     color: '#777777',
-    backgroundColor: '#E2DEDF', // CCQ: 要不要改 EEEBEB 跟 personalInfo > inputField 一致
+    backgroundColor: '#EEEBEB', 
     height: 20, 
     width: 140, 
-    paddingTop: 3, // 上
-    paddingBottom: 3, // 下
-    paddingLeft: 10, // 左
-    paddingRight: 10, // 右
+    paddingVertical: 3, // 上
+    paddingHorizontal: 10,
     marginTop: 3, // 可以根据需要调整垂直间距
     borderColor: '#E6E2E2', 
     borderWidth: 1,

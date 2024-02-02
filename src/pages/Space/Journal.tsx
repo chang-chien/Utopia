@@ -190,7 +190,7 @@ const Journal = ({navigation}: TProps) => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <View style={styles.lyingBlock}>
+        {/* <View style={styles.lyingBlock}>
           <ButtonIconField
             collection='Entypo'
             name='arrow-with-circle-left'
@@ -198,7 +198,7 @@ const Journal = ({navigation}: TProps) => {
             onPress={handleBack}
           />
           <Text style={styles.pageTitle}>Journal log</Text>
-        </View>
+        </View> */}
 
         <View style={styles.claenderBlock}>
           <CustomCalendar markedDate={data.date} onPress={handleDatePress}/>

@@ -99,7 +99,7 @@ const Space = ({navigation}: TProps) => {
 
       {/* Personal Space */}
       <View style={styles.block}>
-        <Text style={styles.pageTitle}>Personal Space</Text>
+        {/* <Text style={styles.pageTitle}>Personal Space</Text> */}
         <Text style={styles.content}>Hi {data.name}, I hope you are having an amazing day! If not, no worries. I am here for you even when it feels like no one else is. So sit back and relax with me, you did good today.</Text>
       </View>
 
@@ -161,7 +161,6 @@ const Space = ({navigation}: TProps) => {
         <View style={styles.lyingBlock}>
           <ButtonSmallField 
             title='Submit'
-            // onPress={() => navigation.navigate('Feed')} 
             buttonColor='#444344'
             buttonTextColor='#ECEBE0'/>
           <ButtonLinkField 
@@ -176,7 +175,6 @@ const Space = ({navigation}: TProps) => {
         <Text style={styles.title}>The song that can describe your mood today</Text>
         <ButtonSmallField 
           title='+ Add a song'
-          // onPress={() => navigation.navigate('Feed')} 
           buttonColor='#444344'
           buttonTextColor='#ECEBE0'/>
       </View>
