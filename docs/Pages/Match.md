@@ -9,18 +9,19 @@ Previous Page: [Message](./Message.md)
 [Profile](./Profile.md)
 
 ## Issue
-- padding 距離
-- 點進去之前只能看到一張照片？
-- placeholder style
-- radius style
-- status 命名
-- report 相關
-  - 介面
-- favorite 相關
-  - trigger 後的反饋
-  - favorite 透明度
-  - icon 可不可以
-- 整個畫面
+- [x] status 命名
+- [ ] report > button > LIFF
+- [ ] 第一頁就要看到全部照片（可以用按的換下一張）
+- [ ] placeholder style 改深一點
+- [ ] padding 距離之後再調
+- [ ] radius style 先這樣 之後再調
+- [ ] favorite 相關
+  - trigger 後的反饋 => 往上滑的動畫
+  - favorite 透明度 => 不用
+
+## HTODO List
+- 更新 favorite icon
+- report 的 LIFF 介面
 
 ## TODO List
 - TODO ID on Figma: 09

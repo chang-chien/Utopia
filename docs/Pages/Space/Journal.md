@@ -6,7 +6,7 @@ Previous Page: [Space](../Space.md)
 <img src="./Journal2.jpg" alt="Journal Demo" width="30%">
 
 ## Issue
-- back 的必要性
+- back 和文字並排 之後看看要不要放 bar 最左
 - 字體排版統一性
   - 階層概念是啥
   - 可以等我出 figma demo

@@ -12,17 +12,22 @@ Previous Page: [Match](./Match.md)
 - [FeedBackField](./Space/FeedBackField.md)
 
 ## Issue
-- Journal 相關
-  - 註解放不下
-  - 開關定義
-  - 開關預設
-  - 樹的用途, 變化, 解決方式
-- slider 相關
-  - 預設位置
-  - 有沒有 send
-- 整個畫面
+- [ ] Journal 相關
+  - 狀態註解改為 display & Don't display
+  - 開關定義 => DONE
+  - 開關預設為 開
+  - 樹的變化用圖片呈現 樹本身是連結
+- [x] slider 相關
+  - 範圍 0-10
+  - 預設 10
+  - 用 little button send 要跟右邊 link 一樣高
 
-## TODO List
+## HTODO List
+- 樹的圖大概 3-10 張
+
+## CTODO List
 - TODO ID on Figma: 09
+- bar 的底色改灰色
+- slider 的 send 切版
 
 Next Page: [Profile](./Profile.md)
