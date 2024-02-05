@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native'; // Import useRoute hook
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -68,11 +69,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 40,
-    color: '#5A585A',
-  },
-  focusIcon: {
-    fontSize: 40,
-    color: '#323131',
+    marginTop: 8, // 調整 icon 位置高度
   },
 });
 
@@ -103,9 +100,10 @@ const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 const TabScreen = () => (
+
   <Tab.Navigator
     screenOptions={({ route }) => ({
-      tabBarIcon: ({ focused, color, size }) => {
+      tabBarIcon: ({ color }) => {
         let iconName;
 
         if (route.name === 'Feed') {
@@ -119,13 +117,17 @@ const TabScreen = () => (
         } else if (route.name === 'Profile') {
           iconName = 'user';
         } 
-        return <FontAwesome5 name={iconName} style={focused ? styles.focusIcon : styles.icon} solid/>;
+
+        return (<FontAwesome5 name={iconName} 
+                              style= {[styles.icon, {color: color}]} 
+                              solid/>);
       },
+      tabBarActiveTintColor: route.name === 'SpaceScreen' ? '#F4F2E1' : '#323232', // 上排傳進去的color 從這邊吃
+      tabBarInactiveTintColor: route.name === 'SpaceScreen' ? '#464646' : '#595959', // 上排傳進去的color 從這邊吃
+      tabBarShowLabel: false, // 不顯示 bar 的 label
       tabBarStyle: {
         backgroundColor: route.name === 'SpaceScreen' ? '#777777' : '#F9F8EF',
       },
-      tabBarShowLabel: false, // 不顯示 bar 的 label
-      // tabBarInactiveTintColor: route.name === 'SpaceScreen' ? '#F9F8EF' : '#777777', // 未被選取的顏色 因為字定義失效
       headerTitleAlign: 'left', // Align title to the left
       headerStyle: { backgroundColor: route.name === 'SpaceScreen' ? '#777777' : '#F9F8EF'},
       headerTitleStyle: {
@@ -168,8 +170,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        // For Pages in Space
         screenOptions={({ route }) => ({
-          // headerTitleAlign: 'left', // Align title to the left
           headerStyle: { backgroundColor: '#777777' },
           headerTitleStyle: {
             fontSize: 32,
@@ -177,7 +179,6 @@ const App = () => {
             color: '#E2DEDF' 
           },
           headerShown: route.name === 'Space' ? false : true,
-          // gestureEnabled: false // 鎖住手勢返回
         })}
         >
         <Stack.Screen name="Poll" options={{ headerShown: false , gestureEnabled: false}} >
@@ -191,7 +192,7 @@ const App = () => {
         </Stack.Screen>
         <Stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false, gestureEnabled: false }} >
         </Stack.Screen>
-        <Stack.Screen name="Journal" options={{ headerBackTitle: 'Space', headerTintColor: '#E2DEDF'}}  >
+        <Stack.Screen name="Journal" options={{ headerBackTitle: 'Space', headerTintColor: '#E2DEDF' }} >
           {(props) => <Journal {...props} />}
         </Stack.Screen>
         <Stack.Screen name="Mood" options={{ headerBackTitle: 'Space', headerTintColor: '#E2DEDF'}} >

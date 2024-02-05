@@ -15,13 +15,15 @@ For more examples, please refer to the [Documentation](./docs/Documentation.md)
 # Roadmap
 
 # Contributing
-- Feature Branch: feature/FigmaFeatureName
-- Commit Type
+- Feature Branch: feature/ScreenName
+- Commit Type: 
   - feat 
   - fix
   - docs
   - style
+  - refactor 
   - test
+- Commit Message: WBS [ScreenId].[TaskId] - [Type]: [Short Description]
 
 # Contact
 Chang Chien: changchien.yt@gmail.com

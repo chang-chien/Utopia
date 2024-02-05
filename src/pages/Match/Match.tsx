@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TouchableOpacity, Text, Image, StyleSheet, View, ScrollView } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../../App';
+import { RootTabParamList } from '../../../App';
 
 import ButtonIconField from '../../share/ButtonIconField'; // 导入新组件
 import BlockQnaField from '../../share/BlockQnaField'; // 导入新组件
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type MatchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Match'>;
+type MatchScreenNavigationProp = StackNavigationProp<RootTabParamList, 'Match'>;
 
 type TProps = {
   navigation: MatchScreenNavigationProp;
@@ -93,7 +93,7 @@ const profileData = {
 const userData = {
   userId: 5, // 自己的ID 查詢的參數
   profileUserId: 3, // 對方的ID 查詢的參數
-  matchStatus: MatchStatus.Unknow, // 以前有沒有滑到他過
+  matchStatus: MatchStatus.Unknown, // 以前有沒有滑到他過
 }
 
 // Q CCTODO: 補 report onPress function 要先知道介面
@@ -126,7 +126,7 @@ const Match = ({navigation}: TProps) => {
         <TouchableOpacity onPress={handleMoreInfo}>
           <Image
             style={styles.image}
-            source={require('../../../assets/photoexample.jpg')}
+            source={{ uri: profileData.image }}
           />
         </TouchableOpacity>
         <ButtonIconField 
