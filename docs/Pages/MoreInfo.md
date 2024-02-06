@@ -1,9 +1,9 @@
-# PersonalInfo
+# MoreInfo
 
-Previous Page: [Poll](./Poll.md)
+Previous Page: [PersonalInfo](./PersonalInfo.md)
 
-<img src="./PersonalInfo/PersonalInfo1.jpg" alt="PersonalInfo Demo" width="30%">
-<img src="./PersonalInfo/PersonalInfo2.jpg" alt="PersonalInfo Demo" width="30%">
+<img src="./MoreInfo/MoreInfo1.jpg" alt="MoreInfo Demo" width="30%">
+<img src="./MoreInfo/MoreInfo2.jpg" alt="MoreInfo Demo" width="30%">
 
 ## Issue:
 - Submit 附近的空間
@@ -18,4 +18,4 @@ Previous Page: [Poll](./Poll.md)
 - title 移掉
 - 補 onenote 介面設計 profile page(下一頁是know more about your life)
 
-Next Page: [MoreInfo](./MoreInfo.md)
+Next Page: [Feed](./Feed.md)

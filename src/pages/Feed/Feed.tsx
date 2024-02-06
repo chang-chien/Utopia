@@ -12,16 +12,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start', // 上下對齊
     justifyContent: 'flex-start',
     height: '80%',
+    paddingVertical: 10,
     paddingHorizontal: 30, // 添加了 padding 属性
   },
-  pageTitle: {
-    fontSize: 32,
-    color: '#444344',
-    fontFamily: 'RobotoSlab_700Bold',
-    marginBottom: 10, // 可以根据需要调整垂直间距
-
-  },
-
 });
 
 type FeedScreenNavigationProp = StackNavigationProp<RootStackParamList, 'TabScreen'>;
@@ -48,7 +41,6 @@ const Feed = ({navigation}: TProps) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-          {/* <Text style={styles.pageTitle}>Feed</Text> */}
           {data.map((data, index) => (
             <PostField 
               avatar={data.avatar} 

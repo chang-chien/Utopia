@@ -11,6 +11,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#777777',
   },
+  lyingBlock: {
+    width: '100%',
+    height: 'auto',
+    flexDirection: 'row', // 橫向排列
+    alignItems: 'center', // 上下置中
+    // justifyContent: 'space-between',
+    // backgroundColor: 'red',
+  },
   backIcon: {
     width: '50%', 
     fontSize: 50,
@@ -27,7 +35,7 @@ const styles = StyleSheet.create({
     marginBottom: 5, // 可以根据需要调整垂直间距
   },
   block: {
-    marginBottom: 40, // 可以根据需要调整垂直间距
+    marginTop: 40, // 可以根据需要调整垂直间距
     width: '100%',
     paddingHorizontal: 35,
     flex: 1,
@@ -60,17 +68,17 @@ const Journal = ({navigation}: TProps) => {
 
   return (
       <ScrollView style={styles.container}>
-
-        <ButtonIconField 
-          collection='Entypo' 
-          name='arrow-with-circle-left' 
-          style={styles.backIcon} 
-          onPress={handleBack}
-        />  
-
-        {/* Personal Space */}
-        <View style={styles.block}>
+        {/* <View style={styles.lyingBlock}>
+          <ButtonIconField
+            collection='Entypo'
+            name='arrow-with-circle-left'
+            style={styles.backIcon}
+            onPress={handleBack}
+          />
           <Text style={styles.pageTitle}>Mood Genie</Text>
+        </View> */}
+
+        <View style={styles.block}>
           <Text style={styles.content}>Hi there! I am here to provide your mood tracker. Everything is good here,  high or low, I am here for you.</Text>
         </View>
 
