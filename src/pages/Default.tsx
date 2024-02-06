@@ -1,47 +1,39 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, SafeAreaView, ScrollView, View, Text } from 'react-native';
+import { useTranslation } from 'react-i18next';
+
+import globalStyles from '../assets/globalStyles';
+import colors from '../assets/colors';
+import fonts from '../assets/font';
+
+import BlockField from '../share/BlockField';
+import BlockQnaField from '../share/BlockQnaField';
+import ButtonField from '../share/ButtonField';
+import ButtonIconField from '../share/ButtonIconField';
+import IconVariant from '../share/IconComponent/IconVariant';
+import ButtonLargeField from '../share/ButtonLargeField';
+import ButtonLinkField from '../share/ButtonLinkField';
+import ButtonSmallField from '../share/ButtonSmallField';
+import InputField from '../share/InputField';
+import InputAreaField from '../share/InputAreaField';
+import TagField from '../share/TagField';
+import BlockAvartField from '../share/BlockAvartField';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 
-import I18n from 'react-native-i18n';
-
-// Destructure I18n.t for a cleaner code
-const { t } = I18n;
-
-import BlockField from '../share/BlockField'; // 导入新组件
-import BlockQnaField from '../share/BlockQnaField'; // 导入新组件
-import ButtonField from '../share/ButtonField'; // 导入新组件
-import ButtonIconField from '../share/ButtonIconField'; // 导入新组件
-import IconVariant from '../share/IconComponent/IconVariant';
-import ButtonLargeField from '../share/ButtonLargeField'; // 导入新组件
-import ButtonLinkField from '../share/ButtonLinkField'; // 导入新组件
-import ButtonSmallField from '../share/ButtonSmallField'; // 导入新组件
-import InputField from '../share/InputField'; // 导入新组件
-import InputAreaField from '../share/InputAreaField'; // 导入新组件
-import TagField from '../share/TagField'; // 导入新组件
-import BlockAvartField from '../share/BlockAvartField'; // 导入新组件
-
 // TODO: 整理 styleSheet
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, // 一定要加不然螢幕下半部會被吃掉
-    backgroundColor: '#F9F8EF',
-    height: '80%',
-    padding: 5, // 添加了 padding 属性
-    paddingVertical: 30,
-    paddingLeft: 30,
-    paddingRight: 30,
+  bodyContainer: {
+    ...globalStyles.pollContainer,
+    gap: 20,
   },
-  block: {
-    flex: 1, // 一定要加不然滑不動
-    marginBottom: 40, // 可以根据需要调整垂直间距
+  lyingBlock: {
+    ...globalStyles.lyingBlock,
+    height: 44,
     width: '100%',
-  },
-  title: {
-    fontSize: 26,
-    color: '#444344',
-    fontFamily: 'RobotoSlab_700Bold',
+    paddingHorizontal: 35,
+    gap: 10,
   },
 });
 
@@ -54,12 +46,18 @@ type TProps = {
 const data = {}
 
 const Default = ({navigation}: TProps) => {
+
+  const { t } = useTranslation();
+
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.block}>
-        <Text style={styles.title}>{t('greeting')}</Text>
-      </View>
-    </ScrollView>
+    <SafeAreaView>
+      <ScrollView style={styles.bodyContainer}>
+        <View style={styles.lyingBlock}>
+          <Text>{t('greeting')}</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+
   );
 }
 

@@ -2,7 +2,6 @@ import { StyleSheet, SafeAreaView, ScrollView, View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import globalStyles from '../../assets/globalStyles';
 import colors from '../../assets/colors';
-import fonts from '../../assets/font';
 import InputField from '../../share/InputField';
 import ButtonLargeField from '../../share/ButtonLargeField';
 
@@ -27,41 +26,40 @@ const styles = StyleSheet.create({
 });
 
 const inputItems = [
-  'photo',
-  'place',
-  'shop',
-  'selfDescribe',
-  'things', // CCTODO: 下拉式選單
-  'work', // CCTODOQ: 等介面
-  'anyElse',
+  'name',
+  'location',
+  'gender',
+  'interest',
+  'mbti',
+  'starSign',
+  'height',
+  'weight',
+  'currentStatus',
+  'hightestEducation',
 ];
 
-type MoreInfoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'MoreInfo'>;
+type BasicInfoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'BasicInfo'>;
 
 type TProps = {
-  navigation: MoreInfoScreenNavigationProp;
+  navigation: BasicInfoScreenNavigationProp;
 };
 
-const MoreInfo = ({navigation}: TProps) => {
+const BasicInfo = ({navigation}: TProps) => {
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
-    <SafeAreaView style={globalStyles.safeContainer}>
+  <SafeAreaView style={globalStyles.safeContainer}>
     <ScrollView style={styles.bodyContainer}>
       {inputItems.map((title, index) => (
         <View style={styles.inputContainer} key={index}>
-          <InputField 
-            title={t(`poll.MoreInfo.fieldTitle.${title}`)} 
-            annotation={i18n.exists(`poll.MoreInfo.fieldAnnotation.${title}`)? 
-                        t(`poll.MoreInfo.fieldAnnotation.${title}`): null}
-          />
+          <InputField title={t(`poll.BasicInfo.fieldTitle.${title}`)}/>
         </View>
       ))}
       <View style={styles.button}>
         <ButtonLargeField 
-          title={t('poll.MoreInfo.fieldButton')}
-          onPress={() => navigation.push('Poll', { pageType: 'PersonalInfo' })} //堆疊上去 才是往下一頁的感覺
+          title={t('poll.BasicInfo.fieldButton')}
+          onPress={() => navigation.push('Poll', { pageType: 'MoreInfo' })} //堆疊上去 才是往下一頁的感覺
           buttonColor={colors.black3}
           buttonTextColor={colors.white}/>
       </View>
@@ -70,4 +68,4 @@ const MoreInfo = ({navigation}: TProps) => {
   );
 }
 
-export default MoreInfo;
+export default BasicInfo;

@@ -1,33 +1,33 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 
+import colors from '../assets/colors';
+import fonts from '../assets/font';
+
 import ButtonField from './ButtonField'; // 导入新组件
 
 export type Props = {
   title: string;
   onPress: Function;
-  buttonColor?: string; // 預設 #EEEBEB
-  buttonTextColor?: string; // 預設 #444344
+  buttonColor?: string; // 預設 gray2
+  buttonTextColor?: string; // 預設 black4
 };
 
 const styles = StyleSheet.create({
   buttonContainer: {
     width: 180,
-    marginVertical: 10,
     borderRadius: 10,
     overflow: 'hidden',
   },
   button: {
-    backgroundColor: '#EEEBEB',
+    backgroundColor: colors.gray2,
     width: '100%',
-    paddingVertical: 10,
+    padding: 10,
   },
   buttonText: {
-    color: '#444344',
+    ...fonts.body3Bold,
+    color: colors.black4,
     textAlign: 'center',
-    fontWeight: 'bold',
-    fontFamily: 'RobotoSlab_700Bold',
-    fontSize: 16,
   },
 });
 
@@ -40,8 +40,8 @@ const ButtonLargeField: React.FC<Props> = ({ title, onPress, buttonColor, button
     <TouchableOpacity onPress={handlePress} style={styles.buttonContainer}>
       <ButtonField 
         title={title} 
-        buttonStyle={[styles.button, {backgroundColor : buttonColor}]} 
-        buttonTextStyle={[styles.buttonText, {color : buttonTextColor}]} 
+        buttonStyle={[styles.button, buttonColor? {backgroundColor : buttonColor} : null]} 
+        buttonTextStyle={[styles.buttonText, buttonTextColor? {color : buttonTextColor} : null]} 
       />
     </TouchableOpacity>
   );
