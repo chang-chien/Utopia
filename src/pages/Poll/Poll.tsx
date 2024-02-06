@@ -1,94 +1,90 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import globalStyles from '../../assets/globalStyles';
+import colors from '../../assets/colors';
+import fonts from '../../assets/font';
+import ButtonLargeField from '../../share/ButtonLargeField';
 
 import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../../App';
 
-import ButtonLargeField from '../../share/ButtonLargeField'; // 导入新组件
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F9F8EF',
-    alignItems: 'center', // 水平置中 // 左右對齊 flex-start, center, flex-end
-    justifyContent: 'center', // 垂直置中
-    paddingTop: '40%',
-  },
   bodyContainer: {
-    height: '90%',
-    // backgroundColor: 'red',
-    alignItems: 'center', // 水平置中 // 左右對齊 flex-start, center, flex-end
+    ...globalStyles.pollContainer,
+    gap: 20,
+    alignItems: 'center', // 水平置中
     justifyContent: 'center', // 垂直置中
-  },
-  lyingBlock: {
-    width: '90%',
-    height: 'auto',
-    flexDirection: 'row', // 橫向排列
-    alignItems: 'center', // 上下置中
-    justifyContent: 'space-evenly',
-    paddingTop: '5%',
-    paddingBottom: '10%',
   },
   titleContainer: {
-    alignItems: 'center', 
-    paddingBottom: 30,
+    width: '100%',
+    alignItems: 'center', // 水平置中
   },
-  textContainer: {
-    fontWeight: 'bold', // 加粗
-    fontSize: 32,
-    fontFamily: 'RobotoSlab_700Bold',
+  lyingBlock: {
+    ...globalStyles.lyingBlock,
+    height: 44,
+    width: '100%',
+    paddingHorizontal: 35,
+    gap: 10,
   },
-  buttonContainer: {
-    width: 150, // 按钮容器的宽度
-    borderRadius: 10, // 圆角半径
-    borderColor: '#444344', // 边框颜色
-    overflow: 'hidden', // 确保按钮内容不会超出底框
+  text: {
+    ...fonts.heading1,
+    color: colors.black4,
   },
-  button: {
-    flexDirection: 'row', // 设置水平排列
+  annotationContainer: {
+    alignItems: 'center', // 水平置中
+    paddingTop: 30,
+    paddingBottom: 10,
   },
-  enableBar: {
-    width: '30%',
-    height: 5,
-    borderRadius: 10, // 圆角半径
-    backgroundColor: '#444344'
-  },
-  disableBar: {
-    width: '30%',
-    height: 5,
-    borderRadius: 10, // 圆角半径
-    backgroundColor: '#EEEBEB'
-  },
-});
+  annotation: {
+    ...fonts.body3,
+    color: colors.black1,
+  }
+})
 
 type PollScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Poll'>;
+type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Poll'>;
 
 type TProps = {
   navigation: PollScreenNavigationProp;
+  route: ProfileScreenRouteProp
 };
 
-// 03 CCTODO: 這邊去 PersonalInfo 應該要用 Push 因為接下來都沒有上面 只有底下 bar
-const Poll = ({navigation}: TProps) => {
+const Poll = ({ navigation, route }: TProps) => {
+
+  const { pageType } = route.params;
+  const { t, i18n } = useTranslation();
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={globalStyles.safeContainer}>
       <View style={styles.bodyContainer}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.textContainer}>Lets talk about</Text>
-          <Text style={styles.textContainer}>yourself</Text>
-        </View>
-        <View style={styles.button}>
+          {/* Title */}
+          <View style={styles.titleContainer}>
+            <Text style={styles.text}>{t(`poll.${pageType}.transitionLine1`)}</Text>
+            <Text style={styles.text}>{t(`poll.${pageType}.transitionLine2`)}</Text>
+            {i18n.exists(`poll.${pageType}.transitionAnnotation1`)?
+              <View style={styles.annotationContainer}>
+                <Text style={styles.annotation}>{t(`poll.${pageType}.transitionAnnotation1`)}</Text>
+                <Text style={styles.annotation}>{t(`poll.${pageType}.transitionAnnotation2`)}</Text>
+                <Text style={styles.annotation}>{t(`poll.${pageType}.transitionAnnotation3`)}</Text>
+              </View> : null
+            }
+          </View>
+          {/* Button */}
           <ButtonLargeField
-            title='Lets get started'
-            onPress={() => navigation.navigate('PersonalInfo')}
-            buttonColor='#EEEBEB'/>
-        </View>
+            title={t(`poll.${pageType}.transitionButton`)}
+            onPress={() => navigation.push(pageType)}
+            />
       </View>
+      
+      {/* Status Bar */}
       <View style={styles.lyingBlock}>
-        <View style={styles.enableBar}></View>
-        <View style={styles.disableBar}></View>
-        <View style={styles.disableBar}></View>
+        <View style={pageType==='BasicInfo'? globalStyles.enableBar:globalStyles.disableBar}></View>
+        <View style={pageType==='MoreInfo'? globalStyles.enableBar:globalStyles.disableBar}></View>
+        <View style={pageType==='PersonalInfo'? globalStyles.enableBar:globalStyles.disableBar}></View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

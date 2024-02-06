@@ -1,5 +1,3 @@
-// styles/fonts.js
-
 const Fonts = {
     heading1: {
       fontFamily: 'RobotoSlab_700Bold',
@@ -20,7 +18,7 @@ const Fonts = {
         fontFamily: 'RobotoSlab_400Regular',
         fontSize: 20,
     },
-    body1Blod: {
+    body1Bold: {
         fontFamily: 'RobotoSlab_700Bold',
         fontSize: 20,
     },
@@ -28,7 +26,7 @@ const Fonts = {
         fontFamily: 'RobotoSlab_400Regular',
         fontSize: 18,
     },
-    body2Blod: {
+    body2Bold: {
         fontFamily: 'RobotoSlab_700Bold',
         fontSize: 18,
     },
@@ -36,7 +34,7 @@ const Fonts = {
         fontFamily: 'RobotoSlab_400Regular',
         fontSize: 16,
     },
-    body3Blod: {
+    body3Bold: {
         fontFamily: 'RobotoSlab_700Bold',
         fontSize: 16,
     },
@@ -44,7 +42,7 @@ const Fonts = {
         fontFamily: 'RobotoSlab_400Regular',
         fontSize: 14,
     },
-    // body4Blod: {
+    // body4Bold: {
     //     fontFamily: 'RobotoSlab_700Bold',
     //     fontSize: 14,
     // },
@@ -52,7 +50,7 @@ const Fonts = {
         fontFamily: 'RobotoSlab_400Regular',
         fontSize: 12,
     },
-    body5Blod: {
+    body5Bold: {
         fontFamily: 'RobotoSlab_700Bold',
         fontSize: 12,
     },
@@ -60,7 +58,7 @@ const Fonts = {
     //     fontFamily: 'RobotoSlab_400Regular',
     //     fontSize: 10,
     // },
-    // body6Blod: {
+    // body6Bold: {
     //     fontFamily: 'RobotoSlab_700Bold',
     //     fontSize: 10,
     // },
@@ -73,7 +71,7 @@ const Fonts = {
     //     fontFamily: 'InriaSerif_400Regular',
     //     fontSize: 20,
     // },
-    bodyInriaBlod: {
+    bodyInriaBold: {
         fontFamily: 'InriaSerif_700Bold',
         fontSize: 20,
     },

@@ -1,0 +1,59 @@
+{
+  "poll": {
+    "BasicInfo": {
+      "transitionLine1": "Lets talk about",
+      "transitionLine2": "yourself",
+      "transitionButton": "Lets get started",
+      "fieldTitle": {
+        "name": "Name",
+        "location": "Location",
+        "gender": "Gender",
+        "interest": "Interest",
+        "mbti": "MBTI",
+        "starSign": "Star Sign",
+        "height": "Height",
+        "weight": "Weight",
+        "currentStatus": "Current Status",
+        "hightestEducation": "Hightest education"
+      },
+      "fieldButton": "Next"
+    },
+    "MoreInfo": {
+      "transitionLine1": "Now Let us know",
+      "transitionLine2": "more about your life",
+      "transitionButton": "Lets get started",
+      "fieldTitle": {
+        "photo": "Share a photo of your pet if you have/had one",
+        "place": "Share the most beautiful place you have ever been to",
+        "shop": "Share a favorite shop of yours",
+        "selfDescribe": "Describe yourself in one sentence",
+        "things": "Things I want to try if I have the chance",
+        "work": "Work",
+        "anyElse": "Anything else you want to share with people"
+      },
+      "fieldAnnotation": {
+        "photo": "( Maybe you can find them a soul mate as well! )\n(If your pet is a rock I we would love to see them as well!)",
+        "selfDescribe": "(Fill in with options) (Wordings TBD)"
+      },
+      "fieldButton": "Next"
+    },
+    "PersonalInfo": {
+      "transitionLine1": "Last one",
+      "transitionLine2": "Most important one",
+      "transitionAnnotation1": " How I met your mother metaphors planted",
+      "transitionAnnotation2": " I'm sorry if you didn't watch that show XD",
+      "transitionAnnotation3": " (We don’t welcome Barneys here btw)",
+      "transitionButton": "Lets get started",
+      "fieldTitle": {
+        "lookingFor": "looking for a …",
+        "worldview": "My view on emotions",
+        "relationship": "The relationship I'm currently looking for"
+      },
+      "fieldAnnotation": {
+        "photo": "( Maybe you can find them a soul mate as well! )\n(If your pet is a rock I we would love to see them as well!)",
+        "selfDescribe": "(Fill in with options) (Wordings TBD)"
+      },
+      "fieldButton": "Submit"
+    }
+  }
+}

@@ -1,4 +1,7 @@
 {
+  "poll": {
+    "page1Title": "開始"
+  },
   "greeting": "Hello, world!",
   "welcome": "Welcome to my app!"
 }

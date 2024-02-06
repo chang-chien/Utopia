@@ -1,57 +1,54 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
-import {
-  useFonts,
-  RobotoSlab_700Bold,
-} from '@expo-google-fonts/roboto-slab';
+
+import colors from '../assets/colors';
+import fonts from '../assets/font';
 
 export type Props = {
-  label: string;
+  title: string;
+  annotation?: string;
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 20, // 可以根据需要调整垂直间距
-    width: '100%'
+    width: '100%',
+    paddingLeft: 5,
+    paddingBottom: 5,
   },
-  text: {
-    paddingLeft: 5, // 左
-    paddingBottom: 5, // 左
-    color: '#5A585A',
-    fontFamily: 'RobotoSlab_700Bold',
-    fontSize: 16
+  title: {
+    ...fonts.body3Bold,
+    color: colors.black3,
+  },
+  annotation: {
+    ...fonts.body5Bold,
+    color: colors.black1,
+    paddingTop: 5,
   },
   input: {
     height: 30, 
     width: '60%', 
-    paddingTop: 3, // 上
-    paddingBottom: 3, // 下
-    paddingLeft: 10, // 左
-    paddingRight: 10, // 右
-    borderColor: '#E6E2E2', 
+    paddingVertical: 3,
+    paddingHorizontal: 10,
+    backgroundColor: colors.gray2,
     borderWidth: 1,
-    backgroundColor: '#EEEBEB',
     borderRadius: 15, // 添加圆角
+    borderColor: colors.gray3,
   },
 });
 // 09 CCTODO: placeholder 的字型
 
 
-const InputField: React.FC<Props> = ({ label }) => {
-
-  let [fontsLoaded, fontError] = useFonts({
-    RobotoSlab_700Bold,
-  });
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
-
+const InputField: React.FC<Props> = ({ title, annotation }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{label}</Text>
+    <>
+      <View style={styles.container}>
+        <Text style={styles.title}>{title}</Text>
+        {annotation != null && (
+          <Text style={styles.annotation}>{annotation}</Text>
+        )}
+      </View>
       <TextInput style={styles.input} placeholder={"Enter here"}/>
-    </View>
+    </>
   );
 }
 

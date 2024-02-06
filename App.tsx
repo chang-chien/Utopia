@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, I18nManager  } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native'; // Import useRoute hook
-import I18n from 'react-native-i18n';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator  } from '@react-navigation/stack';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import 'react-native-gesture-handler';
 
@@ -30,14 +28,11 @@ import {
 } from '@expo-google-fonts/inria-serif';
 // 07 CCTODO 加上自型 => 文字、顏色、自型用 ENUM 或 i18n
 
-// Import language files
-import en from './src/assets/locales/en.json';
-import ch from './src/assets/locales/ch.json';
-
 import Default from './src/pages/Default';
 import Poll from './src/pages/Poll/Poll';
-import PersonalInfo from './src/pages/Poll/PersonalInfo';
+import BasicInfo from './src/pages/Poll/BasicInfo';
 import MoreInfo from './src/pages/Poll/MoreInfo';
+import PersonalInfo from './src/pages/Poll/PersonalInfo';
 import Feed from './src/pages/Feed/Feed';
 import Message from './src/pages/Message/Message';
 import Match from './src/pages/Match/Match';
@@ -46,6 +41,9 @@ import Journal from './src/pages/Space/Journal';
 import Mood from './src/pages/Space/Mood';
 import Profile from './src/pages/Profile/Profile';
 import SignUp from './src/pages/SignUp';
+
+import i18n from './src/assets/locales/i18n';
+const initI18n = i18n;
 
 const styles = StyleSheet.create({
   container: {
@@ -78,28 +76,16 @@ const styles = StyleSheet.create({
   },
 });
 
-// Define supported languages
-I18n.fallbacks = true;
-I18n.translations = {
-  en,
-  ch,
-};
-
-// Set initial language
-I18n.locale = 'en';
-
-// Support RTL languages
-I18nManager.allowRTL(true);
-
 // CCQ: 頁面的 User Journey (1)第一次下載 (2)註冊過登出了 (3)登入中直接進 Feed
 // 09 CCTODO: StatusBar 監控頁面 loading 狀況
 
 /**驗證下面 Stack.Navigator */
 export type RootStackParamList = {
   Default: undefined;
-  Poll: undefined;
-  PersonalInfo: undefined;
+  Poll:  { pageType: 'BasicInfo' | 'MoreInfo' | 'PersonalInfo' };
+  BasicInfo: undefined;
   MoreInfo: undefined;
+  PersonalInfo: undefined;
   TabScreen: undefined;
   Space: undefined;
   Journal: undefined;
@@ -118,7 +104,6 @@ const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 const TabScreen = () => (
-
   <Tab.Navigator
     screenOptions={({ route }) => ({
       tabBarIcon: ({ color }) => {
@@ -185,6 +170,7 @@ const App = () => {
     return null;
   }
 
+  // option 裡面加 gestureEnabled: true
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -199,16 +185,20 @@ const App = () => {
           headerShown: route.name === 'Space' ? false : true,
         })}
         >
-        <Stack.Screen name="Poll" options={{ headerShown: false , gestureEnabled: false}} >
-          {(props) => <Poll {...props} />}
+        
+        <Stack.Screen name="Poll" options={{ headerShown: false }} initialParams={{ pageType: 'BasicInfo' }} >
+          {(props) => <Poll {...props }/>}
         </Stack.Screen>
-        <Stack.Screen name="PersonalInfo" options={{ headerShown: false, gestureEnabled: false }} >
-          {(props) => <PersonalInfo {...props} />}
+        <Stack.Screen name="BasicInfo" options={{ headerShown: false }} >
+          {(props) => <BasicInfo {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="MoreInfo" options={{ headerShown: false, gestureEnabled: false }} >
+        <Stack.Screen name="MoreInfo" options={{ headerShown: false }} >
           {(props) => <MoreInfo {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false, gestureEnabled: false }} >
+        <Stack.Screen name="PersonalInfo" options={{ headerShown: false }} >
+          {(props) => <PersonalInfo {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="TabScreen" component={TabScreen} options={{ headerShown: false }} >
         </Stack.Screen>
         <Stack.Screen name="Journal" options={{ headerBackTitle: 'Space', headerTintColor: '#E2DEDF' }} >
           {(props) => <Journal {...props} />}
