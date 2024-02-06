@@ -4,6 +4,11 @@ import { Text, StyleSheet, View, ScrollView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 
+import I18n from 'react-native-i18n';
+
+// Destructure I18n.t for a cleaner code
+const { t } = I18n;
+
 import BlockField from '../share/BlockField'; // 导入新组件
 import BlockQnaField from '../share/BlockQnaField'; // 导入新组件
 import ButtonField from '../share/ButtonField'; // 导入新组件
@@ -52,7 +57,7 @@ const Default = ({navigation}: TProps) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.block}>
-        <Text style={styles.title}>Hello World</Text>
+        <Text style={styles.title}>{t('greeting')}</Text>
       </View>
     </ScrollView>
   );
