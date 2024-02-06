@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, I18nManager  } from 'react-native';
+import I18n from 'react-native-i18n';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -27,6 +28,10 @@ import {
   InriaSerif_700Bold_Italic,
 } from '@expo-google-fonts/inria-serif';
 // 07 CCTODO 加上自型 => 文字、顏色、自型用 ENUM 或 i18n
+
+// Import language files
+import en from './src/assets/locales/en.json';
+import ch from './src/assets/locales/ch.json';
 
 import Default from './src/pages/Default';
 import Poll from './src/pages/Poll/Poll';
@@ -71,6 +76,19 @@ const styles = StyleSheet.create({
     color: '#444344',
   },
 });
+
+// Define supported languages
+I18n.fallbacks = true;
+I18n.translations = {
+  en,
+  ch,
+};
+
+// Set initial language
+I18n.locale = 'en';
+
+// Support RTL languages
+I18nManager.allowRTL(true);
 
 // CCQ: 頁面的 User Journey (1)第一次下載 (2)註冊過登出了 (3)登入中直接進 Feed
 // 09 CCTODO: StatusBar 監控頁面 loading 狀況
