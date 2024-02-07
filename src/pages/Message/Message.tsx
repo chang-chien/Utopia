@@ -1,46 +1,21 @@
-import { Text, StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, SafeAreaView, ScrollView, View, Text } from 'react-native';
+import globalStyles from '../../assets/globalStyles';
+import AvatartField from './AvatarField';
+import ChatBoxField from './ChatBoxField';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootTabParamList } from '../../../App';
 
-import BlockAvartField from '../../share/BlockAvartField'; // 导入新组件
-
-// TODO: 整理 styleSheet
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, // 一定要加不然螢幕下半部會被吃掉
-    backgroundColor: '#F9F8EF',
-    height: '80%',
-    padding: 5, // 添加了 padding 属性
-    paddingVertical: 15,
-    paddingLeft: 30,
-    paddingRight: 30,
+  bodyContainer: {
+    ...globalStyles.screenContainer,
   },
-  block: {
-    flex: 1, // 一定要加不然滑不動
-    marginBottom: 15, // 可以根据需要调整垂直间距
-    width: '100%',
+  lyingBlock: {
+    ...globalStyles.lyingBlock,
+    overflow: 'scroll'
   },
-  title: {
-    fontSize: 26,
-    color: '#444344',
-    fontFamily: 'RobotoSlab_700Bold',
-    marginBottom: 10, // 可以根据需要调整垂直间距
-  },
-  avatar: {
-    width: 50,
-    height: 50,
-    marginTop: 10, // 如果只有一行文字 report會太遠
-  },
-  name: {
-    fontSize: 20,
-    color: '#777777',
-    fontFamily: 'RobotoSlab_400Regular',
-  },
-  content: {
-    fontSize: 14,
-    color: '#777777',
-    fontFamily: 'RobotoSlab_400Regular',
+  margin: {
+    width: 30
   },
 });
 
@@ -50,14 +25,16 @@ type TProps = {
   navigation: MessageScreenNavigationProp;
 };
 
-// 05 CCTODO 好像可以不用帶ID 整個規劃 DB 的時候 in & out
+// CCTODO: 如果 onlineStatusData 改變 data 重抓
+// CCTODO: 整理 AvartField 顯示順序給資料庫/後端處裡
+// CCTODO: Send 後端邏輯：B send > change DB > if A online > refresh A data(這裡比較難做)
 const data = [{
   senderId: 2,
   senderAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
   senderName: "Cristina",
   lastMessageId: 1,
   lastMessage: 'Hey I am Cristina',
-  readStatus: false
+  readStatus: true
 }, {
   senderId: 3,
   senderAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
@@ -65,31 +42,80 @@ const data = [{
   lastMessageId: 1,
   lastMessage: 'Hola, mi llamo Jessie',
   readStatus: false
+}, {
+  senderId: 4,
+  senderAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
+  senderName: "Jessie",
+  lastMessageId: 1,
+  lastMessage: 'Hola, mi llamo Jessie',
+  readStatus: false
+}, {
+  senderId: 5,
+  senderAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
+  senderName: "Jessie",
+  lastMessageId: 1,
+  lastMessage: 'Hola, mi llamo Jessie',
+  readStatus: false
+}, {
+  senderId: 6,
+  senderAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
+  senderName: "Jessie",
+  lastMessageId: 1,
+  lastMessage: 'Hola, mi llamo Jessie',
+  readStatus: false
+}, {
+  senderId: 7,
+  senderAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
+  senderName: "Jessie",
+  lastMessageId: 1,
+  lastMessage: 'Hola, mi llamo Jessie',
+  readStatus: false
+}, {
+  senderId: 8,
+  senderAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBngj5Oa8udlkeVBvwD5j-Fe2OFbY1uoC3voc1Pcajqa2iSc5t",
+  senderName: "Jessie",
+  lastMessageId: 1,
+  lastMessage: 'Hola, mi llamo Jessie',
+  readStatus: false
 }]
 
-// 09 CCTODO: BlockAvartField 外面加一層 touchable
+// key = senderId, Value = boolean
+const onlineStatusData = {
+  3: true,
+  5: true
+}
+
 const Message = ({navigation}: TProps) => {
   return (
-    <ScrollView style={styles.container}>
-      {/* <View style={styles.block}>
-        <Text style={styles.title}>Message</Text>
-      </View> */}
+    <SafeAreaView style={globalStyles.safeContainer}>
+      <ScrollView>
+        {/* Avatar */}
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <View style={globalStyles.lyingBlock}> 
+            {/* lyingBlock 加不了邊 設定左邊距離 */}
+            <View style={styles.margin}></View>
+            {data.map((data, index) => (
+              <AvatartField 
+                avatar={data.senderAvatar}
+                online={onlineStatusData[data.senderId]} />
+            ))}
+          </View>
+        </ScrollView>
 
-      {data.map((data, index) => (
-        <View style={styles.block}>
-        <BlockAvartField 
-          key={index}
-          avatar={data.senderAvatar} 
-          title={data.senderName} 
-          content={data.lastMessage}
-          avatarStyle={styles.avatar}
-          titleStyle={styles.name}
-          contentStyle={styles.content} />
+        {/* ChatBox */}
+        <View style={styles.bodyContainer}>
+          {data.map((data, index) => (
+            <ChatBoxField 
+              key={index}
+              avatar={data.senderAvatar} 
+              unread={data.readStatus}
+              title={data.senderName} 
+              content={data.lastMessage} />
+          ))}
         </View>
-      ))}
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 export default Message;
-
