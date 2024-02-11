@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const FeedbackField: React.FC<Props> = ({ avatar, title, content, avatarStyle, titleStyle, contentStyle }) => {
+const BlockAvatarField: React.FC<Props> = ({ avatar, title, content, avatarStyle, titleStyle, contentStyle }) => {
   if (title && content) {
     return(
       <View style={styles.lyingBlock}>
@@ -92,4 +92,4 @@ const FeedbackField: React.FC<Props> = ({ avatar, title, content, avatarStyle, t
   }
 };
 
-export default FeedbackField;
+export default BlockAvatarField;
