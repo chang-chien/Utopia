@@ -3,7 +3,7 @@ import { View, TextInput, Image, StyleSheet, Text } from 'react-native';
 
 import ButtonIconField from '../../share/ButtonIconField'; // 导入新组件
 import IconVariant from '../../share/IconComponent/IconVariant';
-import BlockAvartField from '../../share/BlockAvartField'; // 导入新组件
+import BlockAvartField from '../../share/BlockAvatarField'; // 导入新组件
 
 // 09 CCTODO: image 改成多張
 export type Props = {

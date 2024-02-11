@@ -17,7 +17,7 @@ import ButtonSmallField from '../share/ButtonSmallField';
 import InputField from '../share/InputField';
 import InputAreaField from '../share/InputAreaField';
 import TagField from '../share/TagField';
-import BlockAvartField from '../share/BlockAvartField';
+import BlockAvartField from '../share/BlockAvatarField';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
