@@ -12,14 +12,14 @@ const globalStyles = StyleSheet.create({
     paddingHorizontal: 14,
     height: '100%',
   },
-  // screenContainer: {
-  //   flex: 1,
-  //   backgroundColor: colors.ivory1,
-  //   alignItems: 'flex-start', // 水平置左
-  //   justifyContent: 'center', // 垂直置中
-  //   paddingTop: 10,
-  //   paddingHorizontal: 30,
-  // },
+  screenContainer: {
+    flex: 1,
+    backgroundColor: colors.ivory1,
+    alignItems: 'center', // 水平置左
+    justifyContent: 'flex-start', // 垂直置中
+    paddingTop: 10,
+    paddingHorizontal: 20,
+  },
   lyingBlock: {
     height: 'auto',
     flexDirection: 'row', // 橫向排列
