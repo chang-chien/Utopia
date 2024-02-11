@@ -15,10 +15,10 @@ const globalStyles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     backgroundColor: colors.ivory1,
-    // alignItems: 'flex-start', // 水平置左
-    // justifyContent: 'center', // 垂直置中
+    alignItems: 'center', // 水平置左
+    justifyContent: 'flex-start', // 垂直置中
     paddingTop: 10,
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
   },
   lyingBlock: {
     height: 'auto',

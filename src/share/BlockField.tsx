@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, TextInput, Image, StyleSheet, Text } from 'react-native';
-
-import TagField from './TagField'; // 导入新组件
+import colors from "../assets/colors"
+import fonts from "../assets/font"
+import TagField from './TagField';
 
 export type Props = {
-  title: string;
+  title?: string;
+  question?: string;
   content?: string | string[];
   tag?: string[];
   image?: string;
@@ -14,85 +16,69 @@ export type Props = {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 10, // 可以根据需要调整垂直间距
-    width: '100%',
-    paddingLeft: 20, 
-    paddingRight: 20,
+    paddingHorizontal: 20, 
   },
   title: {
-    fontSize: 22,
-    color: '#777777',
-    marginBottom: 3, // 下 要和 TagField.container 一致
-    fontFamily: 'RobotoSlab_700Bold',
+    ...fonts.heading3,
+    color: colors.black1,
+  },
+  question: {
+    ...fonts.body2Bold,
+    color: colors.black1,
+    marginBottom: 5,
   },
   content: {
-    fontSize: 18,
-    color: '#777777',
-    width: '100%', 
-    marginBottom: 3, // 下 要和 TagField.container 一致
-    fontFamily: 'RobotoSlab_400Regular',
+    ...fonts.body2,
+    color: colors.black1,
+    marginBottom: 3,
   },
   tag: {
-    fontSize: 18,
-    color: '#777777',
+    ...fonts.heading3,
     width: '100%', 
-    fontFamily: 'RobotoSlab_400Regular',
-    marginBottom: 3, // 下 要和 TagField.container 一致
+  },
+  imageContainer: {
+    marginTop: 3,
+    gap: 3,
+    width: '60%', 
   },
   image: {
-    width: '60%', 
+    width: '60%', // CCTODO: 要確認一下
     height: 0,
-    paddingBottom: '75%',
-    marginBottom: 3, // 下 要和 TagField.container 一致
+    paddingBottom: '75%', // 圖片比例 4:5
   },
   annotation: {
-    fontSize: 14,
-    color: '#777777',
-    width: '60%', 
-    fontFamily: 'RobotoSlab_400Regular',
-    marginTop: -2, // 可以根据需要调整垂直间距
-    marginBottom: 3, // 下
+    ...fonts.body4,
+    width: '60%',  // CCTODO: 要確認一下
     textAlign: 'center',
   }, 
   comment: {
-    height: 20, 
-    width: '50%', 
-    paddingTop: 3, // 上 要和 TagField.container 一致
-    paddingBottom: 3, // 下 要和 TagField.container 一致
-    paddingLeft: 10, // 左
-    paddingRight: 10, // 右
-    marginTop: 3, // 下
-    marginBottom: 3, // 下
-    borderColor: '#E6E2E2', 
+    height: 20,  // CCTODO：感覺可以拿掉
+    width: '60%', 
+    paddingVertical: 3,
+    paddingHorizontal: 10,
+    backgroundColor: colors.gray2,
     borderWidth: 1,
-    backgroundColor: '#EEEBEB',
-    borderRadius: 10, // 添加圆角
+    borderRadius: 15, // 添加圆角
+    borderColor: colors.gray3,
   },
 });
 
-// Q 04 CCTODO: QNA的Q大小可以跟title一樣? 不管怎麼樣都要把QNA並進來 差別是要不要開question
-// 09 CCTODO: placeholder 的字型
-const BlockField: React.FC<Props> = ({ title, content, tag, image, annotation, comment}) => {
+const BlockField: React.FC<Props> = ({ title, question, content, tag, image, annotation, comment}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      {content != null && (
-        <Text style={styles.content}>{content}</Text>
-      )}
-      {tag != null && (
+      {title && <Text style={styles.title}>{title}</Text> }
+      {question && <Text style={styles.question}>{question}</Text> }
+      {content && <Text style={styles.content}>{content}</Text> }
+      {tag &&
         <View style={styles.tag}>
           <TagField label={tag}/>
-        </View>
-      )}
-      {image != null && (
-        <Image style={styles.image} source={{ uri: image}} />
-      )}
-      {annotation != null && (
-        <Text style={styles.annotation}>{annotation}</Text>
-      )}
-      {comment != null && (
-        <TextInput style={styles.comment} placeholder={comment} />
-      )}
+        </View> }
+      {image && annotation &&
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} source={{ uri: image}} />
+          <Text style={styles.annotation}>{annotation}</Text>
+        </View> }
+      {comment && <TextInput style={styles.comment} placeholder={comment} /> }
 
     </View>
   );

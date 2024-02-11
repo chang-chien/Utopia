@@ -22,7 +22,6 @@ import BlockAvartField from '../share/BlockAvatarField';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 
-// TODO: 整理 styleSheet
 const styles = StyleSheet.create({
   bodyContainer: {
     ...globalStyles.pollContainer,

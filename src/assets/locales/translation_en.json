@@ -14,7 +14,7 @@
         "height": "Height",
         "weight": "Weight",
         "currentStatus": "Current Status",
-        "hightestEducation": "Hightest education"
+        "hightestEducation": "Hightest Education"
       },
       "fieldButton": "Next"
     },
@@ -55,5 +55,8 @@
       },
       "fieldButton": "Submit"
     }
+  },
+  "match": {
+    "placeHolder": "Leave a feedback"
   }
 }
